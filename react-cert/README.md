@@ -23,8 +23,8 @@ As you complete tasks, change the numbers boxes to [x]. (ex: 1. -> [x]). This wi
 
 ## Initializing App
 
-1. Create a new React app (you may use the React CLI)
-2. Create your React certification repository, initialize your app with git and push your master branch to your new repository.
+[x]. Create a new React app (you may use the React CLI)
+[x]. Create your React certification repository, initialize your app with git and push your master branch to your new repository.
 3. Add a copy of this Readme.MD file to your React certification repository at the main level. (You will probably want to copy all of the .md files to your repository for easy reference.)
 4. **Important** Share your repository with the certification supervisor.
     - In your Bitbucket repository click the `...` (in the top right corner of the screen).
