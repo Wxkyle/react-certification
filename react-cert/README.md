@@ -25,15 +25,15 @@ As you complete tasks, change the numbers boxes to [x]. (ex: 1. -> [x]). This wi
 
 [x]. Create a new React app (you may use the React CLI)
 [x]. Create your React certification repository, initialize your app with git and push your master branch to your new repository.
-3. Add a copy of this Readme.MD file to your React certification repository at the main level. (You will probably want to copy all of the .md files to your repository for easy reference.)
+[x]. Add a copy of this Readme.MD file to your React certification repository at the main level. (You will probably want to copy all of the .md files to your repository for easy reference.)
 4. **Important** Share your repository with the certification supervisor.
     - In your Bitbucket repository click the `...` (in the top right corner of the screen).
     - Click `Share Repository`
     - Add your certification supervisor's username of email address in the `Users` input, click the `Add` button, then click `Write` to give them write access.
 
-5. Create a new branch called `Initializing` and checkout this branch. This is where you will begin working on this project.
-6. Remove all the existing code from your `render()` method.
-7. Save your work and push these changes to Bitbucket.
+[x]. Create a new branch called `Initializing` and checkout this branch. This is where you will begin working on this project.
+[x]. Remove all the existing code from your `render()` method.
+[x]. Save your work and push these changes to Bitbucket.
 8. Create a Pull Request (PR) for your code and merge it with the `master` branch. (Do not delete this branch.)
 
 ## Routing
