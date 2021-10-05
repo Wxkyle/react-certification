@@ -34,13 +34,13 @@ As you complete tasks, change the numbers boxes to [x]. (ex: 1. -> [x]). This wi
 [x]. Create a new branch called `Initializing` and checkout this branch. This is where you will begin working on this project.
 [x]. Remove all the existing code from your `render()` method.
 [x]. Save your work and push these changes to Bitbucket.
-8. Create a Pull Request (PR) for your code and merge it with the `master` branch. (Do not delete this branch.)
+[x]. Create a Pull Request (PR) for your code and merge it with the `master` branch. (Do not delete this branch.)
 
 ## Routing
 
-1. Create a new branch called `routing` and checkout this branch.
-2. We recommend that you create a new folder inside of your `src` folder called `components`. All future component files should be created in this folder.
-3. Set up the following routes:
+[x]. Create a new branch called `routing` and checkout this branch.
+[x]. We recommend that you create a new folder inside of your `src` folder called `components`. All future component files should be created in this folder.
+[x]. Set up the following routes:
     - `Home` - the main (landing) page && login page
     - `Categories` - a page which will contain all joke categories
     - `Search` - a page to search for a joke by a search term
