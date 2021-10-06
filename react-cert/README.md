@@ -46,9 +46,9 @@ As you complete tasks, change the numbers boxes to [x]. (ex: 1. -> [x]). This wi
     - `Search` - a page to search for a joke by a search term
     - `Jokes` - a page the lists all viewed jokes
 
-4. Add a button, menu, or some other way to navigate between routes.
-5. Save your work and push these changes to Bitbucket.
-6. Create a Pull Request (PR) for your code and merge it with the `master` branch. (Do not delete this branch.)
+[x]. Add a button, menu, or some other way to navigate between routes.
+[x]. Save your work and push these changes to Bitbucket.
+[x]. Create a Pull Request (PR) for your code and merge it with the `master` branch. (Do not delete this branch.)
 
 ## Authentication
 
