@@ -52,7 +52,7 @@ As you complete tasks, change the numbers boxes to [x]. (ex: 1. -> [x]). This wi
 
 ## Authentication
 
-1. Create a new branch called authentication and checkout this branch.
+[x]. Create a new branch called authentication and checkout this branch.
 2. On your main (landing) page set up a form to take an email and password to login.
     - The password should have a way to toggle masking and showing the password
     - The login button should be disabled until a username and password have been entered
