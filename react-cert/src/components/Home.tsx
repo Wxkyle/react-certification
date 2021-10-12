@@ -1,10 +1,26 @@
 import { useState } from "react";
 
 function Home() {
-  const [email, setEmail] = useState<string>();
-  const [password, setPassword] = useState<string>();
 
-  const formLogin = () => {};
+
+  const [email, setEmail] = useState<string>("");
+  const [password, setPassword] = useState<string>("");
+  const [emailErr, setEmailErr] = useState(false);
+  const [pwdError, setPwdError] = useState(false);
+
+  const validEmail = new RegExp(
+    `^[a-zA-Z0-9.!#$%&'*+/=?^_\`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$`
+  );
+  const validPassword = new RegExp(`^(?=.*\\d)(?=.*[a-zA-Z]).{6,10}$`);
+
+  const validate = () => {
+    if (!validEmail.test(email)) {
+      setEmailErr(true);
+    }
+    if (!validPassword.test(password)) {
+      setPwdError(true);
+    }
+  };
 
   return (
     <div className="test">
@@ -18,8 +34,11 @@ function Home() {
               onChange={(e) => setEmail(e.target.value)}
               className="emailFormInput"
               placeholder="email@email.com"
-              pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+              // pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
             ></input>
+            {emailErr ? (
+              <p style={{ color: "red" }}>Your email is invalid</p>
+            ) : null}
           </div>
           <div>
             <p>Password</p>
@@ -27,10 +46,13 @@ function Home() {
               onChange={(e) => setPassword(e.target.value)}
               className="emailFormInput"
               placeholder="password"
-              pattern="^(?=.*\d)(?=.*[a-zA-Z]).{6,10}$"
+              // pattern="^(?=.*\d)(?=.*[a-zA-Z]).{6,10}$"
             ></input>
+            {pwdError ? (
+              <p style={{ color: "red" }}>Your password is invalid</p>
+            ) : null}
           </div>
-          <button onClick={() => formLogin()} className="submitButton">
+          <button onClick={() => validate()} className="submitButton">
             Login
           </button>
         </form>
