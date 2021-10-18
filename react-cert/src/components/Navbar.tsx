@@ -2,7 +2,8 @@ import "../App.css";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
-function Navbar() {
+function Navbar(props: any) {
+  const { notLoggedIn } = props;
 
   return (
     <div>

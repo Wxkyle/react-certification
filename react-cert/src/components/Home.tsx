@@ -1,25 +1,39 @@
 import { useState } from "react";
+import { useHistory } from "react-router-dom";
 
 function Home() {
-
-
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
-  const [emailErr, setEmailErr] = useState(false);
-  const [pwdError, setPwdError] = useState(false);
+  const [emailErr, setEmailErr] = useState<boolean>(false);
+  const [pwdError, setPwdError] = useState<boolean>(false);
+  const [loading, setLoading] = useState(false);
+
+  let savedLogin = {};
 
   const validEmail = new RegExp(
     `^[a-zA-Z0-9.!#$%&'*+/=?^_\`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$`
   );
-  const validPassword = new RegExp(`^(?=.*\\d)(?=.*[a-zA-Z]).{6,10}$`);
+  const validPassword = new RegExp(`^(?=.*\\d)(?=.*[a-zA-Z]).{6,10}$`); //still needs to require one capital letter
+
+  const history = useHistory();
 
   const validate = () => {
-    if (!validEmail.test(email)) {
-      setEmailErr(true);
-    }
-    if (!validPassword.test(password)) {
-      setPwdError(true);
-    }
+    setLoading(true);
+
+    setTimeout(() => {
+      !validEmail.test(email) ? setEmailErr(true) : setEmailErr(false); //look at notes for other way to test Jer told you
+
+      !validPassword.test(password) ? setPwdError(true) : setPwdError(false);
+
+      if (!emailErr && !pwdError) {
+        savedLogin = JSON.stringify({ email: email, password: password });
+      }
+      setLoading(false);
+
+      if ((email && password) && (!emailErr && !pwdError)) {
+        history.push("/Search");
+      }
+    }, 1500);
   };
 
   return (
@@ -27,7 +41,7 @@ function Home() {
       <h1>Home</h1>
       <div className="loginModal">
         <div />
-        <form className="login">
+        <div className="login">
           <div>
             <p>Email</p>
             <input
@@ -53,9 +67,9 @@ function Home() {
             ) : null}
           </div>
           <button onClick={() => validate()} className="submitButton">
-            Login
+            {loading ? <div id="loading" /> : "Login"}
           </button>
-        </form>
+        </div>
         <div />
       </div>
     </div>

@@ -59,7 +59,7 @@ As you complete tasks, change the numbers boxes to [x]. (ex: 1. -> [x]). This wi
     - The email field should have an email validation check; the login button should remain disabled until a valid-like email has been entered
     - The password should be validated to have at least 1 capital letter, 1 lower case letter, 1 number, and be between 6-10 characters in length.
 
-3. When the login button is submitted an authentication method should be called that will **simulate** an HTTP call:
+[x]. When the login button is submitted an authentication method should be called that will **simulate** an HTTP call:
     - accept user input and put it in a json object
     - give an appropriate delay (1500 - 3000 ms)
     - show a spinner or give some other indication that the system "is working" to log the user in
