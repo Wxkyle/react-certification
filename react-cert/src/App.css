@@ -1,66 +1,63 @@
-/* .App {
-  text-align: center;
+html,
+body {
+  margin: 0;
+  padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+h1 {
+  color: #fff;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+p{
+  color: #fff;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
-
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-} */
-
-/* .navbar{
-  height: 8vh;
-  background-color: rgb(28, 28, 31);
+.loginModal {
   display: grid;
-  grid-template-columns: 1fr 1fr 1fr 1fr;
-  justify-content: center;
-  align-content: center;
-} */
-
-/* button{
-  display: grid;
-  justify-content: center;
-  align-content: center;
-} */
-
-html,body{
-  margin:0;
-  padding:0;
+  grid-template-columns: 50px 1fr 1fr;
 }
 
-.test{
+.login {
+  border: black solid 0.5px;
+  padding: 3em;
+  border-radius: 5px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  background-color: #3f3f3f;
+  justify-items: center;
+  max-width: 25em;
+}
+
+.emailFormInput {
+  padding: 6px;
+  border-radius: 5px;
+  border: black 0.5px solid;
+  color: #363636;
+}
+
+.emailFormInput:focus {
+  padding: 6px;
+  border-radius: 5px;
+  border: black 0.5px solid;
+  color: #363636;
+}
+
+.submitButton {
+  color: #fff;
+  background-color: rgb(54, 54, 231);
+  color: #fff;
+  padding: 8px 12px;
+  border-radius: 8px;
+  grid-column: span 2;
+  max-width: 250px;
+  margin-top: 20px;
+  min-width: 160px;
+}
+
+.test {
   height: 100vh;
-  margin-left: 8vw;
-  background-color: red;
+  padding-left: 8vw;
+  background-color: #343435;
 }
 
 :root {
@@ -71,8 +68,7 @@ html,body{
   --bg-primary: #23232e;
   --bg-secondary: #141418;
   --transition-speed: 600ms;
- }
- 
+}
 
 .navbar {
   width: 8vw;
@@ -80,9 +76,9 @@ html,body{
   background-color: var(--bg-primary);
   transition: width 200ms ease;
   height: 100vh;
- }
- 
- .nav-link {
+}
+
+.nav-link {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -91,10 +87,28 @@ html,body{
   text-decoration: none;
   filter: grayscale(100%) opacity(0.7);
   transition: var(--transition-speed);
- }
- 
- .nav-link:hover {
+}
+
+.nav-link:hover {
   filter: grayscale(0%) opacity(1);
   background: var(--bg-secondary);
   text-decoration: none;
- }
+}
+
+#loading {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border: 3px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  border-top-color: #fff;
+  animation: spin 1s ease-in-out infinite;
+  -webkit-animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}
+@-webkit-keyframes spin {
+  to { -webkit-transform: rotate(360deg); }
+}

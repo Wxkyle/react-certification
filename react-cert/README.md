@@ -52,23 +52,23 @@ As you complete tasks, change the numbers boxes to [x]. (ex: 1. -> [x]). This wi
 
 ## Authentication
 
-1. Create a new branch called authentication and checkout this branch.
-2. On your main (landing) page set up a form to take an email and password to login.
+[x]. Create a new branch called authentication and checkout this branch.
+[x]. On your main (landing) page set up a form to take an email and password to login.
     - The password should have a way to toggle masking and showing the password
     - The login button should be disabled until a username and password have been entered
     - The email field should have an email validation check; the login button should remain disabled until a valid-like email has been entered
     - The password should be validated to have at least 1 capital letter, 1 lower case letter, 1 number, and be between 6-10 characters in length.
 
-3. When the login button is submitted an authentication method should be called that will **simulate** an HTTP call:
+[x]. When the login button is submitted an authentication method should be called that will **simulate** an HTTP call:
     - accept user input and put it in a json object
     - give an appropriate delay (1500 - 3000 ms)
     - show a spinner or give some other indication that the system "is working" to log the user in
     - update state so that remaining pages (Categories, Search && Jokes) are viewable
     - then redirect the user to a `Search` page (or one of the other pages in the app).
 
-4. Prevent a user from accessing any other page without passing the "authentication" process.
-5. Save your work and push these changes to Bitbucket.
-6. Create a Pull Request (PR) for your code and merge it with the master branch. (Do not delete this branch.)
+[x]. Prevent a user from accessing any other page without passing the "authentication" process.
+[x]. Save your work and push these changes to Bitbucket.
+[x]. Create a Pull Request (PR) for your code and merge it with the master branch. (Do not delete this branch.)
 
 ## Fetching Data
 

@@ -10,7 +10,6 @@ function App() {
   return (
     <div>
       <Router>
-        <Navbar></Navbar>
         <div className="">
           <Switch>
             <Route path="/Categories" component={Categories} />
