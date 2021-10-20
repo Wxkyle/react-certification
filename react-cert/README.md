@@ -72,7 +72,7 @@ As you complete tasks, change the numbers boxes to [x]. (ex: 1. -> [x]). This wi
 
 ## Fetching Data
 
-1. Create a new branch called `data` and checkout this branch.
+[x]. Create a new branch called `data` and checkout this branch.
 2. On the main (landing) page:
     - list each page and give a short explanation of the contents of each of the pages in the app
     - provide links to each page (use a menu)

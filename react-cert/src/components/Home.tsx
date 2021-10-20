@@ -8,7 +8,7 @@ function Home() {
   const [emailErr, setEmailErr] = useState<boolean>(false);
   const [pwdError, setPwdError] = useState<boolean>(false);
   const [loading, setLoading] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false)
+  const [loggedIn, setLoggedIn] = useState(false);
 
   let savedLogin = {};
 
@@ -34,7 +34,7 @@ function Home() {
 
       if (email && password && !emailErr && !pwdError) {
         history.push("/Search");
-        setLoggedIn(true)
+        setLoggedIn(true);
       }
     }, 1500);
   };
@@ -76,6 +76,12 @@ function Home() {
             </button>
           </div>
           <div />
+        </div>
+        <div>
+          explanation of main landing page 
+          - list each page and give a short explanation of the contents of each of the pages in the app 
+          - provide links to each page (use a menu) 
+          - links only work if the users has "logged in"
         </div>
       </div>
     </div>
