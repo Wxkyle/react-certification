@@ -66,9 +66,9 @@ As you complete tasks, change the numbers boxes to [x]. (ex: 1. -> [x]). This wi
     - update state so that remaining pages (Categories, Search && Jokes) are viewable
     - then redirect the user to a `Search` page (or one of the other pages in the app).
 
-4. Prevent a user from accessing any other page without passing the "authentication" process.
-5. Save your work and push these changes to Bitbucket.
-6. Create a Pull Request (PR) for your code and merge it with the master branch. (Do not delete this branch.)
+[x]. Prevent a user from accessing any other page without passing the "authentication" process.
+[x]. Save your work and push these changes to Bitbucket.
+[x]. Create a Pull Request (PR) for your code and merge it with the master branch. (Do not delete this branch.)
 
 ## Fetching Data
 
