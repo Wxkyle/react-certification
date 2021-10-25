@@ -4,8 +4,10 @@ function Categories() {
   return (
     <div>
       <Navbar loggedIn></Navbar>
-      <div className="test">
-        <h1>Categories</h1>
+      <div className="background">
+        <div className="test">
+          <h1>Categories</h1>
+        </div>
       </div>
     </div>
   );

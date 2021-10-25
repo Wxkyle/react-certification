@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useHistory } from "react-router-dom";
+import { Link, useHistory } from "react-router-dom";
 import Navbar from "./Navbar";
 
 function Home() {
@@ -42,46 +42,62 @@ function Home() {
   return (
     <div>
       <Navbar loggedIn={loggedIn}></Navbar>
-      <div className="test">
-        <h1>Home</h1>
-        <div className="loginModal">
-          <div />
-          <div className="login">
-            <div>
-              <p>Email</p>
-              <input
-                onChange={(e) => setEmail(e.target.value)}
-                className="emailFormInput"
-                placeholder="email@email.com"
-                // pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
-              ></input>
-              {emailErr ? (
-                <p style={{ color: "red" }}>Your email is invalid</p>
-              ) : null}
+      <div className="background">
+        <div className="test">
+          <h1>Home</h1>
+          <div className="loginModal">
+            <div />
+            <div className="login">
+              <div>
+                <p>Email</p>
+                <input
+                  onChange={(e) => setEmail(e.target.value)}
+                  className="emailFormInput"
+                  placeholder="email@email.com"
+                  // pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+                ></input>
+                {emailErr ? (
+                  <p style={{ color: "red" }}>Your email is invalid</p>
+                ) : null}
+              </div>
+              <div>
+                <p>Password</p>
+                <input
+                  onChange={(e) => setPassword(e.target.value)}
+                  className="emailFormInput"
+                  placeholder="password"
+                  // pattern="^(?=.*\d)(?=.*[a-zA-Z]).{6,10}$"
+                ></input>
+                {pwdError ? (
+                  <p style={{ color: "red" }}>Your password is invalid</p>
+                ) : null}
+              </div>
+              <button onClick={() => validate()} className="submitButton">
+                {loading ? <div id="loading" /> : "Login"}
+              </button>
             </div>
-            <div>
-              <p>Password</p>
-              <input
-                onChange={(e) => setPassword(e.target.value)}
-                className="emailFormInput"
-                placeholder="password"
-                // pattern="^(?=.*\d)(?=.*[a-zA-Z]).{6,10}$"
-              ></input>
-              {pwdError ? (
-                <p style={{ color: "red" }}>Your password is invalid</p>
-              ) : null}
-            </div>
-            <button onClick={() => validate()} className="submitButton">
-              {loading ? <div id="loading" /> : "Login"}
-            </button>
+            <div />
           </div>
-          <div />
-        </div>
-        <div>
-          explanation of main landing page 
-          - list each page and give a short explanation of the contents of each of the pages in the app 
-          - provide links to each page (use a menu) 
-          - links only work if the users has "logged in"
+          <div>
+            <div>
+              explanation of main landing page - list each page and give a short
+              explanation of the contents of each of the pages in the app -
+              provide links to each page (use a menu) - links only work if the
+              users has "logged in"
+            </div>
+            <div>
+              <Link to="/Categories">Categories</Link>- This is a page that
+              lists the categories of the site.
+            </div>
+            <div>
+              <Link to="/Jokes">Jokes</Link>- This is a page that has funny
+              stuff.
+            </div>
+            <div>
+              <Link to="/Search">Search</Link>- This is where you can search
+              things.
+            </div>
+          </div>
         </div>
       </div>
     </div>
