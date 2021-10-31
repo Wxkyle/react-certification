@@ -86,16 +86,37 @@ function Home() {
               users has "logged in"
             </div>
             <div>
-              <Link to="/Categories">Categories</Link>- This is a page that
-              lists the categories of the site.
+              {loggedIn ? (
+                <div>
+                  <Link to="/Categories">Categories</Link>- This is a page that
+                  lists the categories of the site.
+                </div>
+              ) : (
+                <div>
+                  Categories- This is a page that lists the categories of the
+                  site.
+                </div>
+              )}
             </div>
             <div>
-              <Link to="/Jokes">Jokes</Link>- This is a page that has funny
-              stuff.
+              {loggedIn ? (
+                <div>
+                  <Link to="/Jokes">Jokes</Link>- This is a page that has funny
+                  stuff.
+                </div>
+              ) : (
+                <div>Jokes- This is a page that has funny stuff.</div>
+              )}
             </div>
             <div>
-              <Link to="/Search">Search</Link>- This is where you can search
-              things.
+              {loggedIn ? (
+                <div>
+                  <Link to="/Search">Search</Link>- This is where you can search
+                  things.
+                </div>
+              ) : (
+                <div>Search- This is where you can search things.</div>
+              )}
             </div>
           </div>
         </div>
