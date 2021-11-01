@@ -9,3 +9,4 @@ const HasuraConfig = buildHasuraConfig(
         fieldFragment: ClaimFieldsFragmentDoc,
       }
     }
+)
