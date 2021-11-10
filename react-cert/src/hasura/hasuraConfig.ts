@@ -1,4 +1,4 @@
-import schema from './generated/graphql.schema.json'
+import schema from './graphql.schema.json'; //comes from graphql-code-generator
 
 const HasuraConfig = buildHasuraConfig(
     schema,
