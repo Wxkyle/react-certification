@@ -16,15 +16,15 @@ module.exports = {
   documents: ['src/**/*.graphql'],
   overwrite: true,
   generates: {
-    'src/resources/config/generated/resourceApi/index.ts': {
+    'src/hasura/generated/resourceApi/index.ts': {
       plugins: [
         'typescript',
         'typescript-operations',
-        'typescript-urql',
+        // 'typescript-urql',
       ],
     },
-    'src/hasura/graphql.schema.json': {
-      plugins: ['introspection'],
-    },
+    // 'src/hasura/generated/graphql.schema.json': {
+    //   plugins: ['introspection'],
+    // },
   },
 };

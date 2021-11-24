@@ -1,5 +1,7 @@
+import { useAtom } from "jotai";
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
+import { loggedInAtom } from "./loginAtom";
 import Navbar from "./Navbar";
 
 function Home() {
@@ -8,7 +10,7 @@ function Home() {
   const [emailErr, setEmailErr] = useState<boolean>(false);
   const [pwdError, setPwdError] = useState<boolean>(false);
   const [loading, setLoading] = useState(false);
-  const [loggedIn, setLoggedIn] = useState(false);
+  const [loggedIn, setLoggedIn] = useAtom(loggedInAtom);
 
   let savedLogin = {};
 

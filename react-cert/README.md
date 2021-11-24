@@ -76,7 +76,7 @@ As you complete tasks, change the numbers boxes to [x]. (ex: 1. -> [x]). This wi
 ## Setup your generator
 [x]. Install these dependencies:
 * `graphql graphql-tag @graphql-codegen/cli @graphql-codegen/introspection @graphql-codegen/typescript @graphql-codegen/typescript-operations`
-2. Follow the instructions here: https://github.com/tesseractcollective/react-graphql-docs/blob/first-drafts/reactGraphqlConfig.md
+[x]. Follow the instructions here: https://github.com/tesseractcollective/react-graphql-docs/blob/first-drafts/reactGraphqlConfig.md
 This will help you setup your codegenerator and your hasura config file.
 
 
