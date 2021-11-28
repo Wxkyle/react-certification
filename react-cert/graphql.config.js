@@ -20,11 +20,11 @@ module.exports = {
       plugins: [
         'typescript',
         'typescript-operations',
-        // 'typescript-urql',
+        'typescript-urql',
       ],
     },
-    // 'src/hasura/generated/graphql.schema.json': {
-    //   plugins: ['introspection'],
-    // },
+    'src/hasura/generated/graphql.schema.json': {
+      plugins: ['introspection'],
+    },
   },
 };

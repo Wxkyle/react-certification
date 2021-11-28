@@ -1,3 +1,4 @@
+import gql from 'graphql-tag';
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
@@ -666,3 +667,15 @@ export type Timestamptz_Comparison_Exp = {
 };
 
 export type JokesFieldsFragment = { __typename?: 'Jokes', categories: any, created_at: any, icon_url: string, id: number, updated_at: any, url: string, value: string };
+
+export const JokesFieldsFragmentDoc = gql`
+    fragment jokesFields on Jokes {
+  categories
+  created_at
+  icon_url
+  id
+  updated_at
+  url
+  value
+}
+    `;
