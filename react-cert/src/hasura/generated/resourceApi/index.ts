@@ -666,7 +666,9 @@ export type Timestamptz_Comparison_Exp = {
   _nin?: Maybe<Array<Scalars['timestamptz']>>;
 };
 
-export type JokesFieldsFragment = { __typename?: 'Jokes', categories: any, created_at: any, icon_url: string, id: number, updated_at: any, url: string, value: string };
+export type JokesFieldsFragment = { __typename?: 'Jokes', categories: any, created_at: any, icon_url: string, id: number, updated_at: any, value: string, url: string };
+
+export type CategoriesFieldsFragment = { __typename?: 'categories', category_name: string };
 
 export const JokesFieldsFragmentDoc = gql`
     fragment jokesFields on Jokes {
@@ -675,7 +677,12 @@ export const JokesFieldsFragmentDoc = gql`
   icon_url
   id
   updated_at
-  url
   value
+  url
+}
+    `;
+export const CategoriesFieldsFragmentDoc = gql`
+    fragment categoriesFields on categories {
+  category_name
 }
     `;

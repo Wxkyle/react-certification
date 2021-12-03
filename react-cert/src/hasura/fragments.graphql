@@ -4,6 +4,10 @@ fragment jokesFields on Jokes {
   icon_url
   id
   updated_at
-  url
   value
+  url
+}
+
+fragment categoriesFields on categories {
+  category_name
 }

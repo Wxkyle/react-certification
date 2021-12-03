@@ -1,4 +1,7 @@
-import { JokesFieldsFragmentDoc } from "./generated/resourceApi";
+import {
+  CategoriesFieldsFragmentDoc,
+  JokesFieldsFragmentDoc,
+} from "./generated/resourceApi";
 import schema from "../hasura/generated/graphql.schema.json"; //comes from graphql-code-generator
 import { buildHasuraConfig } from "@tesseractcollective/react-graphql";
 
@@ -7,5 +10,10 @@ export const HasuraConfig = buildHasuraConfig(schema, {
     typename: "Jokes",
     primaryKey: ["id"],
     fieldFragment: JokesFieldsFragmentDoc,
+  },
+  categories: {
+    typename: "Jokes",
+    primaryKey: ["id"],
+    fieldFragment: CategoriesFieldsFragmentDoc,
   },
 });
