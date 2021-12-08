@@ -34,9 +34,33 @@ export type Jokes = {
   created_at: Scalars['timestamptz'];
   icon_url: Scalars['String'];
   id: Scalars['Int'];
+  /** An array relationship */
+  jokesOnCategorys: Array<Categories>;
+  /** An aggregate relationship */
+  jokesOnCategorys_aggregate: Categories_Aggregate;
   updated_at: Scalars['timestamptz'];
   url: Scalars['String'];
   value: Scalars['String'];
+};
+
+
+/** columns and relationships of "Jokes" */
+export type JokesJokesOnCategorysArgs = {
+  distinct_on?: Maybe<Array<Categories_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Categories_Order_By>>;
+  where?: Maybe<Categories_Bool_Exp>;
+};
+
+
+/** columns and relationships of "Jokes" */
+export type JokesJokesOnCategorys_AggregateArgs = {
+  distinct_on?: Maybe<Array<Categories_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Categories_Order_By>>;
+  where?: Maybe<Categories_Bool_Exp>;
 };
 
 /** aggregated selection of "Jokes" */
@@ -69,10 +93,37 @@ export type Jokes_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
+/** order by aggregate values of table "Jokes" */
+export type Jokes_Aggregate_Order_By = {
+  avg?: Maybe<Jokes_Avg_Order_By>;
+  count?: Maybe<Order_By>;
+  max?: Maybe<Jokes_Max_Order_By>;
+  min?: Maybe<Jokes_Min_Order_By>;
+  stddev?: Maybe<Jokes_Stddev_Order_By>;
+  stddev_pop?: Maybe<Jokes_Stddev_Pop_Order_By>;
+  stddev_samp?: Maybe<Jokes_Stddev_Samp_Order_By>;
+  sum?: Maybe<Jokes_Sum_Order_By>;
+  var_pop?: Maybe<Jokes_Var_Pop_Order_By>;
+  var_samp?: Maybe<Jokes_Var_Samp_Order_By>;
+  variance?: Maybe<Jokes_Variance_Order_By>;
+};
+
+/** input type for inserting array relation for remote table "Jokes" */
+export type Jokes_Arr_Rel_Insert_Input = {
+  data: Array<Jokes_Insert_Input>;
+  /** on conflict condition */
+  on_conflict?: Maybe<Jokes_On_Conflict>;
+};
+
 /** aggregate avg on columns */
 export type Jokes_Avg_Fields = {
   __typename?: 'Jokes_avg_fields';
   id?: Maybe<Scalars['Float']>;
+};
+
+/** order by avg() on columns of table "Jokes" */
+export type Jokes_Avg_Order_By = {
+  id?: Maybe<Order_By>;
 };
 
 /** Boolean expression to filter rows from the table "Jokes". All fields are combined with a logical 'AND'. */
@@ -84,6 +135,7 @@ export type Jokes_Bool_Exp = {
   created_at?: Maybe<Timestamptz_Comparison_Exp>;
   icon_url?: Maybe<String_Comparison_Exp>;
   id?: Maybe<Int_Comparison_Exp>;
+  jokesOnCategorys?: Maybe<Categories_Bool_Exp>;
   updated_at?: Maybe<Timestamptz_Comparison_Exp>;
   url?: Maybe<String_Comparison_Exp>;
   value?: Maybe<String_Comparison_Exp>;
@@ -106,6 +158,7 @@ export type Jokes_Insert_Input = {
   created_at?: Maybe<Scalars['timestamptz']>;
   icon_url?: Maybe<Scalars['String']>;
   id?: Maybe<Scalars['Int']>;
+  jokesOnCategorys?: Maybe<Categories_Arr_Rel_Insert_Input>;
   updated_at?: Maybe<Scalars['timestamptz']>;
   url?: Maybe<Scalars['String']>;
   value?: Maybe<Scalars['String']>;
@@ -122,6 +175,16 @@ export type Jokes_Max_Fields = {
   value?: Maybe<Scalars['String']>;
 };
 
+/** order by max() on columns of table "Jokes" */
+export type Jokes_Max_Order_By = {
+  created_at?: Maybe<Order_By>;
+  icon_url?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  updated_at?: Maybe<Order_By>;
+  url?: Maybe<Order_By>;
+  value?: Maybe<Order_By>;
+};
+
 /** aggregate min on columns */
 export type Jokes_Min_Fields = {
   __typename?: 'Jokes_min_fields';
@@ -131,6 +194,16 @@ export type Jokes_Min_Fields = {
   updated_at?: Maybe<Scalars['timestamptz']>;
   url?: Maybe<Scalars['String']>;
   value?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "Jokes" */
+export type Jokes_Min_Order_By = {
+  created_at?: Maybe<Order_By>;
+  icon_url?: Maybe<Order_By>;
+  id?: Maybe<Order_By>;
+  updated_at?: Maybe<Order_By>;
+  url?: Maybe<Order_By>;
+  value?: Maybe<Order_By>;
 };
 
 /** response of any mutation on the table "Jokes" */
@@ -155,6 +228,7 @@ export type Jokes_Order_By = {
   created_at?: Maybe<Order_By>;
   icon_url?: Maybe<Order_By>;
   id?: Maybe<Order_By>;
+  jokesOnCategorys_aggregate?: Maybe<Categories_Aggregate_Order_By>;
   updated_at?: Maybe<Order_By>;
   url?: Maybe<Order_By>;
   value?: Maybe<Order_By>;
@@ -200,10 +274,20 @@ export type Jokes_Stddev_Fields = {
   id?: Maybe<Scalars['Float']>;
 };
 
+/** order by stddev() on columns of table "Jokes" */
+export type Jokes_Stddev_Order_By = {
+  id?: Maybe<Order_By>;
+};
+
 /** aggregate stddev_pop on columns */
 export type Jokes_Stddev_Pop_Fields = {
   __typename?: 'Jokes_stddev_pop_fields';
   id?: Maybe<Scalars['Float']>;
+};
+
+/** order by stddev_pop() on columns of table "Jokes" */
+export type Jokes_Stddev_Pop_Order_By = {
+  id?: Maybe<Order_By>;
 };
 
 /** aggregate stddev_samp on columns */
@@ -212,10 +296,20 @@ export type Jokes_Stddev_Samp_Fields = {
   id?: Maybe<Scalars['Float']>;
 };
 
+/** order by stddev_samp() on columns of table "Jokes" */
+export type Jokes_Stddev_Samp_Order_By = {
+  id?: Maybe<Order_By>;
+};
+
 /** aggregate sum on columns */
 export type Jokes_Sum_Fields = {
   __typename?: 'Jokes_sum_fields';
   id?: Maybe<Scalars['Int']>;
+};
+
+/** order by sum() on columns of table "Jokes" */
+export type Jokes_Sum_Order_By = {
+  id?: Maybe<Order_By>;
 };
 
 /** update columns of table "Jokes" */
@@ -242,16 +336,31 @@ export type Jokes_Var_Pop_Fields = {
   id?: Maybe<Scalars['Float']>;
 };
 
+/** order by var_pop() on columns of table "Jokes" */
+export type Jokes_Var_Pop_Order_By = {
+  id?: Maybe<Order_By>;
+};
+
 /** aggregate var_samp on columns */
 export type Jokes_Var_Samp_Fields = {
   __typename?: 'Jokes_var_samp_fields';
   id?: Maybe<Scalars['Float']>;
 };
 
+/** order by var_samp() on columns of table "Jokes" */
+export type Jokes_Var_Samp_Order_By = {
+  id?: Maybe<Order_By>;
+};
+
 /** aggregate variance on columns */
 export type Jokes_Variance_Fields = {
   __typename?: 'Jokes_variance_fields';
   id?: Maybe<Scalars['Float']>;
+};
+
+/** order by variance() on columns of table "Jokes" */
+export type Jokes_Variance_Order_By = {
+  id?: Maybe<Order_By>;
 };
 
 /** Boolean expression to compare columns of type "String". All fields are combined with logical 'AND'. */
@@ -290,7 +399,31 @@ export type String_Comparison_Exp = {
 /** columns and relationships of "categories" */
 export type Categories = {
   __typename?: 'categories';
+  /** An array relationship */
+  categoryOnJokes: Array<Jokes>;
+  /** An aggregate relationship */
+  categoryOnJokes_aggregate: Jokes_Aggregate;
   category_name: Scalars['String'];
+};
+
+
+/** columns and relationships of "categories" */
+export type CategoriesCategoryOnJokesArgs = {
+  distinct_on?: Maybe<Array<Jokes_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Jokes_Order_By>>;
+  where?: Maybe<Jokes_Bool_Exp>;
+};
+
+
+/** columns and relationships of "categories" */
+export type CategoriesCategoryOnJokes_AggregateArgs = {
+  distinct_on?: Maybe<Array<Jokes_Select_Column>>;
+  limit?: Maybe<Scalars['Int']>;
+  offset?: Maybe<Scalars['Int']>;
+  order_by?: Maybe<Array<Jokes_Order_By>>;
+  where?: Maybe<Jokes_Bool_Exp>;
 };
 
 /** aggregated selection of "categories" */
@@ -315,11 +448,26 @@ export type Categories_Aggregate_FieldsCountArgs = {
   distinct?: Maybe<Scalars['Boolean']>;
 };
 
+/** order by aggregate values of table "categories" */
+export type Categories_Aggregate_Order_By = {
+  count?: Maybe<Order_By>;
+  max?: Maybe<Categories_Max_Order_By>;
+  min?: Maybe<Categories_Min_Order_By>;
+};
+
+/** input type for inserting array relation for remote table "categories" */
+export type Categories_Arr_Rel_Insert_Input = {
+  data: Array<Categories_Insert_Input>;
+  /** on conflict condition */
+  on_conflict?: Maybe<Categories_On_Conflict>;
+};
+
 /** Boolean expression to filter rows from the table "categories". All fields are combined with a logical 'AND'. */
 export type Categories_Bool_Exp = {
   _and?: Maybe<Array<Categories_Bool_Exp>>;
   _not?: Maybe<Categories_Bool_Exp>;
   _or?: Maybe<Array<Categories_Bool_Exp>>;
+  categoryOnJokes?: Maybe<Jokes_Bool_Exp>;
   category_name?: Maybe<String_Comparison_Exp>;
 };
 
@@ -331,6 +479,7 @@ export enum Categories_Constraint {
 
 /** input type for inserting data into table "categories" */
 export type Categories_Insert_Input = {
+  categoryOnJokes?: Maybe<Jokes_Arr_Rel_Insert_Input>;
   category_name?: Maybe<Scalars['String']>;
 };
 
@@ -340,10 +489,20 @@ export type Categories_Max_Fields = {
   category_name?: Maybe<Scalars['String']>;
 };
 
+/** order by max() on columns of table "categories" */
+export type Categories_Max_Order_By = {
+  category_name?: Maybe<Order_By>;
+};
+
 /** aggregate min on columns */
 export type Categories_Min_Fields = {
   __typename?: 'categories_min_fields';
   category_name?: Maybe<Scalars['String']>;
+};
+
+/** order by min() on columns of table "categories" */
+export type Categories_Min_Order_By = {
+  category_name?: Maybe<Order_By>;
 };
 
 /** response of any mutation on the table "categories" */
@@ -364,6 +523,7 @@ export type Categories_On_Conflict = {
 
 /** Ordering options when selecting data from "categories". */
 export type Categories_Order_By = {
+  categoryOnJokes_aggregate?: Maybe<Jokes_Aggregate_Order_By>;
   category_name?: Maybe<Order_By>;
 };
 

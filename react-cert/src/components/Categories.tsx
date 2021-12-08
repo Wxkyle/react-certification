@@ -3,11 +3,11 @@ import { HasuraConfig } from "../hasura/hasuraConfig";
 import Navbar from "./Navbar";
 
 function Categories() {
-  const jokesInfiniteQueryState = useReactGraphql(
+  const jokesResult = useReactGraphql(
     HasuraConfig.Jokes
   ).useInfiniteQueryMany();
-  const categoriesInfiniteQueryState = useReactGraphql(
-    HasuraConfig.Jokes
+  const categoriesResult = useReactGraphql(
+    HasuraConfig.categories
   ).useInfiniteQueryMany();
 
   // const infiniteQueryState = useReactGraphql(HasuraConfig.myListings).useInfiniteQueryMany({
@@ -15,8 +15,8 @@ function Categories() {
   //   where,
   // });
 
-  console.log("🔥🔥🔥", jokesInfiniteQueryState);
-  console.log("🔥🔥🔥🔥🔥", categoriesInfiniteQueryState.items);
+  console.log("🔥🔥🔥", jokesResult);
+  console.log("🔥🔥🔥🔥🔥", categoriesResult);
 
   return (
     <div>
@@ -24,6 +24,8 @@ function Categories() {
       <div className="background">
         <div className="test">
           <h1>Categories</h1>
+          <ul>
+          </ul>
         </div>
       </div>
     </div>
