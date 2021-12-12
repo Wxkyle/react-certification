@@ -1,6 +1,9 @@
 import { useReactGraphql } from "@tesseractcollective/react-graphql";
+import { useAtom } from "jotai";
 import { useState } from "react";
 import { HasuraConfig } from "../hasura/hasuraConfig";
+import { categoriesModalAtom, chosenCategoryAtom } from "./AllAtoms";
+import JokeFromCategorySelection from "./JokeFromCategorySelection";
 import Navbar from "./Navbar";
 
 function Categories() {
@@ -12,23 +15,29 @@ function Categories() {
   ).useInfiniteQueryMany();
 
   const [displayModal, setDisplayModal] = useState<boolean>(false);
-  const [chosenCategory, setChosenCategory] = useState<string>("");
+  const [chosenCategory, setChosenCategory] = useAtom(chosenCategoryAtom);
+
+  const [modalEnabled, setModalEnabled] = useAtom(categoriesModalAtom);
 
   const categoryIsChosen = (category: string) => {
     setChosenCategory(category);
     setDisplayModal(true);
+    setModalEnabled(true);
   };
 
   // console.log("🔥🔥🔥", jokesResult);
-  // console.log("🔥🔥🔥🔥🔥", categoriesResult);
+  console.log("🔥🔥🔥🔥🔥", chosenCategory);
 
   return (
     <div>
       <Navbar loggedIn></Navbar>
+      <JokeFromCategorySelection
+      ></JokeFromCategorySelection>
       <div className="background">
         <div className="test">
           <h1>Categories</h1>
-          <ul>
+
+          <div>
             {categoriesResult?.items?.map((category: any) => {
               const categoryName = category.category_name;
               return (
@@ -37,7 +46,7 @@ function Categories() {
                 </li>
               );
             })}
-          </ul>
+          </div>
         </div>
       </div>
     </div>

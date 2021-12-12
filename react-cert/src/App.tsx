@@ -6,7 +6,6 @@ import Home from "./components/Home";
 import Jokes from "./components/Jokes";
 import Search from "./components/Search";
 
-
 const client = createClient({
   url: "https://evolved-newt-21.hasura.app/v1/graphql",
   fetchOptions: {
@@ -22,7 +21,7 @@ function App() {
     <div>
       <Provider value={client}>
         <Router>
-          <div className="">
+          <div>
             <Switch>
               <Route path="/Categories" component={Categories} />
               <Route path="/Jokes" component={Jokes} />

@@ -1,7 +1,7 @@
 import { useAtom } from "jotai";
 import { useState } from "react";
 import { Link, useHistory } from "react-router-dom";
-import { loggedInAtom } from "./loginAtom";
+import { loggedInAtom } from "./AllAtoms";
 import Navbar from "./Navbar";
 
 function Home() {
