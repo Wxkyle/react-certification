@@ -12,8 +12,8 @@ export const HasuraConfig = buildHasuraConfig(schema, {
     fieldFragment: JokesFieldsFragmentDoc,
   },
   categories: {
-    typename: "Jokes",
-    primaryKey: ["id"],
+    typename: "categories",
+    primaryKey: ["category_name"],
     fieldFragment: CategoriesFieldsFragmentDoc,
   },
 });

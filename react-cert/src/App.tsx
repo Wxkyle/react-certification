@@ -1,17 +1,11 @@
-import { Route, BrowserRouter as Router, Switch } from "react-router-dom";
-import { Provider, createClient } from "urql";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { createClient, Provider } from "urql";
 import "./App.css";
 import Categories from "./components/Categories";
 import Home from "./components/Home";
 import Jokes from "./components/Jokes";
 import Search from "./components/Search";
 
-import { ReactGraphqlProvider } from "@tesseractcollective/react-graphql";
-import {
-  ReactGraphqlUIContext,
-  PrimeReactDefaultComponents,
-} from "@tesseractcollective/react-graphql-ui";
-import { HasuraConfig } from "./hasura/hasuraConfig";
 
 const client = createClient({
   url: "https://evolved-newt-21.hasura.app/v1/graphql",
@@ -22,15 +16,6 @@ const client = createClient({
     },
   },
 });
-
-{
-  /* <ReactGraphqlUIContext.Provider
-value={{
-  defaultComponents: PrimeReactDefaultComponents,
-  configsMap: HasuraConfig,
-}}
-> */
-}
 
 function App() {
   return (
