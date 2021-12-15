@@ -1,5 +1,5 @@
 fragment jokesFields on Jokes {
-  categories
+  category
   created_at
   icon_url
   id

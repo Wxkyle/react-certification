@@ -20,26 +20,26 @@ function Categories() {
   const [modalEnabled, setModalEnabled] = useAtom(categoriesModalAtom);
 
   const categoryIsChosen = (category: string) => {
+    console.log("🔥🔥🔥", category);
     setChosenCategory(category);
     setDisplayModal(true);
     setModalEnabled(true);
   };
 
   // console.log("🔥🔥🔥", jokesResult);
-  console.log("🔥🔥🔥🔥🔥", chosenCategory);
+  // console.log("🔥🔥🔥🔥🔥", chosenCategory);
 
   return (
     <div>
       <Navbar loggedIn></Navbar>
-      <JokeFromCategorySelection
-      ></JokeFromCategorySelection>
+      <JokeFromCategorySelection></JokeFromCategorySelection>
       <div className="background">
         <div className="test">
           <h1>Categories</h1>
 
           <div>
             {categoriesResult?.items?.map((category: any) => {
-              const categoryName = category.category_name;
+              const categoryName = category?.category_name;
               return (
                 <li onClick={() => categoryIsChosen(categoryName)}>
                   {categoryName}

@@ -91,7 +91,7 @@ https://formidable.com/open-source/urql/docs/basics/react-preact/
     - list each page and give a short explanation of the contents of each of the pages in the app
     - provide links to each page (use a menu)
     - links only work if the users has "logged in"
-3. On the `Categories` page:
+[x]. On the `Categories` page:
     - utilize a React class and the `componentDidMount` lifecycle method in this step
     - fetch a list of all the joke categories and display them in a list
     - fetch the categories from your hasura database using react-graphql's useInfiniteQueryManyHook
