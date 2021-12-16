@@ -41,7 +41,10 @@ function Categories() {
             {categoriesResult?.items?.map((category: any) => {
               const categoryName = category?.category_name;
               return (
-                <li onClick={() => categoryIsChosen(categoryName)}>
+                <li
+                  className="regularText"
+                  onClick={() => categoryIsChosen(categoryName)}
+                >
                   {categoryName}
                 </li>
               );

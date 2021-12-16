@@ -28,6 +28,11 @@ p {
   max-width: 25em;
 }
 
+.regularText {
+  color: #e7e7e7;
+  padding-top: 3em;
+}
+
 .emailFormInput {
   padding: 6px;
   border-radius: 5px;

@@ -29,7 +29,7 @@ function JokeFromCategorySelection(props: any) {
     where: { category: { _eq: `${chosenCategory}` } },
   });
 
-  console.log("🔥🔥🔥", categoriesResult?.items);
+  // console.log("🔥🔥🔥", categoriesResult?.items);
 
   const jokeResultsItem: jokeResults = categoriesResult?.items[0];
 
@@ -39,7 +39,7 @@ function JokeFromCategorySelection(props: any) {
         <div>{`Random Joke from ${chosenCategory} category`}</div>
         <div onClick={() => setModalEnabled(false)}>X</div>
       </div>
-      <div>{`${jokeResultsItem?.value}`}</div>
+      <div className="regularText">{`${jokeResultsItem?.value}`}</div>
     </div>
   );
 }
