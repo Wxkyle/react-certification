@@ -1,16 +1,18 @@
 import { useReactGraphql } from "@tesseractcollective/react-graphql";
 import { useAtom } from "jotai";
+import { useState } from "react";
 import { HasuraConfig } from "../hasura/hasuraConfig";
 import { searchBarAtom } from "./AllAtoms";
 import Navbar from "./Navbar";
 
 function Search() {
-  const [searchBar, setSearchBar] = useAtom(searchBarAtom);
+  const [buttonPressInput, setButtonPressInput] = useState(" ");
+  const [searchBarInput, setSearchBarInput] = useAtom(searchBarAtom);
 
   const searchBarResult: any = useReactGraphql(
     HasuraConfig.Jokes
   ).useInfiniteQueryMany({
-    where: { value: { _ilike: `%${searchBar}%` } },
+    where: { value: { _ilike: `%${buttonPressInput}%` } },
   });
 
   console.log("🔥🔥🔥", searchBarResult?.items);
@@ -21,13 +23,22 @@ function Search() {
       <div className="background">
         <div className="test">
           <h1>Search</h1>
-          <input
-            onChange={(e) => {
-              setSearchBar(e.target.value);
-            }}
-            className="emailFormInput"
-            placeholder="search"
-          ></input>
+          <div className="login">
+            <input
+              onChange={(e) => {
+                setSearchBarInput(e.target.value);
+              }}
+              className="emailFormInput"
+              placeholder="search"
+            ></input>
+            <button
+              onClick={() => {
+                setButtonPressInput(searchBarInput);
+              }}
+            >
+              Search
+            </button>
+          </div>
           <div className="regularText">
             {searchBarResult.items.map((value: any) => {
               return <div>{`${value.value}`}</div>;
