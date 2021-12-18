@@ -7,7 +7,12 @@ import Navbar from "./Navbar";
 
 function Search() {
   const [buttonPressInput, setButtonPressInput] = useState(" ");
+  const [displayJokeBoolean, setDisplayJokeBoolean] = useState(false);
   const [searchBarInput, setSearchBarInput] = useAtom(searchBarAtom);
+
+  const displayJoke = (value: any) =>{
+    setDisplayJokeBoolean(true)
+  }
 
   const searchBarResult: any = useReactGraphql(
     HasuraConfig.Jokes
@@ -15,7 +20,15 @@ function Search() {
     where: { value: { _ilike: `%${buttonPressInput}%` } },
   });
 
-  console.log("🔥🔥🔥", searchBarResult?.items);
+  console.log("🔥🔥🔥", searchBarResult?.items, displayJokeBoolean);
+
+  function truncateString(str: string, num: number) {
+    if (str.length > num) {
+      return str.slice(0, num) + "...";
+    } else {
+      return str;
+    }
+  }
 
   return (
     <div>
@@ -41,7 +54,7 @@ function Search() {
           </div>
           <div className="regularText">
             {searchBarResult.items.map((value: any) => {
-              return <div>{`${value.value}`}</div>;
+              return <li onClick={() => {displayJoke(value)}}>{`${truncateString(value.value, 50)}`}</li>;
             })}
           </div>
         </div>
