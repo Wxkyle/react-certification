@@ -2,17 +2,34 @@ import { useReactGraphql } from "@tesseractcollective/react-graphql";
 import { useAtom } from "jotai";
 import { useState } from "react";
 import { HasuraConfig } from "../hasura/hasuraConfig";
-import { searchBarAtom } from "./AllAtoms";
+import { chosenCategoryAtom, searchBarAtom, searchModalAtom } from "./AllAtoms";
+import JokeFromSearchSelection from "./JokeFromSearchSelection";
 import Navbar from "./Navbar";
+
+interface jokeResults {
+  category: string;
+  created_at: string;
+  icon_url: string;
+  id: number;
+  updated_at: string;
+  url: string;
+  value: string;
+  __typename: string;
+}
 
 function Search() {
   const [buttonPressInput, setButtonPressInput] = useState(" ");
-  const [displayJokeBoolean, setDisplayJokeBoolean] = useState(false);
+  const [displayJokeModal, setDisplayJokeModal] = useState<boolean>(false);
+  const [jokeValue, setJokeValue] = useState("");
   const [searchBarInput, setSearchBarInput] = useAtom(searchBarAtom);
+  const [modalEnabled, setModalEnabled] = useAtom(searchModalAtom);
 
-  const displayJoke = (value: any) =>{
-    setDisplayJokeBoolean(true)
-  }
+  const displayJoke = (value: jokeResults) => {
+    console.log("🔥🔥🔥", value);
+    setJokeValue(value.value);
+    setDisplayJokeModal(true);
+    setModalEnabled(true);
+  };
 
   const searchBarResult: any = useReactGraphql(
     HasuraConfig.Jokes
@@ -20,7 +37,7 @@ function Search() {
     where: { value: { _ilike: `%${buttonPressInput}%` } },
   });
 
-  console.log("🔥🔥🔥", searchBarResult?.items, displayJokeBoolean);
+  // console.log("🔥🔥🔥", searchBarResult?.items, displayJokeModal);
 
   function truncateString(str: string, num: number) {
     if (str.length > num) {
@@ -33,6 +50,7 @@ function Search() {
   return (
     <div>
       <Navbar loggedIn></Navbar>
+      <JokeFromSearchSelection value={jokeValue}></JokeFromSearchSelection>
       <div className="background">
         <div className="test">
           <h1>Search</h1>
@@ -54,7 +72,13 @@ function Search() {
           </div>
           <div className="regularText">
             {searchBarResult.items.map((value: any) => {
-              return <li onClick={() => {displayJoke(value)}}>{`${truncateString(value.value, 50)}`}</li>;
+              return (
+                <li
+                  onClick={() => {
+                    displayJoke(value);
+                  }}
+                >{`${truncateString(value.value, 50)}`}</li>
+              );
             })}
           </div>
         </div>

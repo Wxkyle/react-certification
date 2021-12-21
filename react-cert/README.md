@@ -96,15 +96,15 @@ https://formidable.com/open-source/urql/docs/basics/react-preact/
     - fetch a list of all the joke categories and display them in a list
     - fetch the categories from your hasura database using react-graphql's useInfiniteQueryManyHook
     - Make each category in the list clickable such that when a category is clicked it should display a random joke from that category (ex: open a dialog or modal with a joke from the selected category)
-4. On the `Search` page:
+[x]. On the `Search` page:
     - Create a search bar
     - Create a way for the user to fetch jokes (ex: search for jokes as the user types in the search bar or use a submit button)
     - fetch the jokes from your hasura database using react-graphql's useInfiniteQueryManyHook.  Pass their search term into the query.
     - Display the results of the search query in a list. Truncate the text of the joke to the first 50 characters.
     - Each listed joke should be clickable such that when a joke is selected the entire joke should be displayed (ex: open a dialog or modal with a joke from the selected category)
-5. On the `Jokes` page:
+[x]. On the `Jokes` page:
     - Don't do anything...this page will be updated in the next section
-6. Save your work and push these changes to Bitbucket.
+[x]. Save your work and push these changes to Bitbucket.
 7. Create a Pull Request (PR) for your code and merge it with the `master` branch. (Do not delete this branch.)
 
 
