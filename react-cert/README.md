@@ -105,11 +105,11 @@ https://formidable.com/open-source/urql/docs/basics/react-preact/
 [x]. On the `Jokes` page:
     - Don't do anything...this page will be updated in the next section
 [x]. Save your work and push these changes to Bitbucket.
-7. Create a Pull Request (PR) for your code and merge it with the `master` branch. (Do not delete this branch.)
+[x]. Create a Pull Request (PR) for your code and merge it with the `master` branch. (Do not delete this branch.)
 
 
 ## State Management
-1. Create a new branch called `state-management` and checkout this branch.
+[x]. Create a new branch called `state-management` and checkout this branch.
 2. Refactor your app to use state management (use Jotai). You should at least have categories and viewed jokes stored in this state Store.
 3. If you choose to use Redux, create actions and reducers to correspond with your data model. If you have choosen a different state management option, set up you app to utilize the applicable management options.
 4. Use the `Jokes` page to display all of the jokes that the user has looked at or selected.
