@@ -70,7 +70,7 @@ As you complete tasks, change the numbers boxes to [x]. (ex: 1. -> [x]). This wi
 [x]. Open the hasura console and create a free-tier heroku database to connect in.
 [x]. Create a table for jokes (Checkout a joke https://api.chucknorris.io/jokes for the shape of the data )
 [x]. Create a table for categories (Checkout https://api.chucknorris.io/jokes/categories for the shape of the data )
-5. Borrow some jokes and categories from the chucknorris api and put them in your hasura DB.
+[x]3.... Borrow some jokes and categories from the chucknorris api and put them in your hasura DB.
 
 
 ## Setup your generator
@@ -110,7 +110,7 @@ https://formidable.com/open-source/urql/docs/basics/react-preact/
 
 ## State Management
 [x]. Create a new branch called `state-management` and checkout this branch.
-2. Refactor your app to use state management (use Jotai). You should at least have categories and viewed jokes stored in this state Store.
+2. Refactor your app to use state management (use Jotai). You should at least have categories and viewed jokes stored in this state Store. Redux.
 3. If you choose to use Redux, create actions and reducers to correspond with your data model. If you have choosen a different state management option, set up you app to utilize the applicable management options.
 4. Use the `Jokes` page to display all of the jokes that the user has looked at or selected.
     - Create a way to display every joke that the user has view
