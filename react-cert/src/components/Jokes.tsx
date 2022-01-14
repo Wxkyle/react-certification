@@ -34,9 +34,6 @@ function Jokes() {
     }
   });
 
-
-
-
   return (
     <div>
       <Navbar loggedIn></Navbar>
