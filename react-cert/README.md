@@ -121,12 +121,11 @@ https://formidable.com/open-source/urql/docs/basics/react-preact/
 
 
 ## Refactor to Utilize Hooks
-1. Create a new branch called `hooks` and checkout this branch.
+[x]. Create a new branch called `hooks` and checkout this branch.
 2. Choose one of your class components and convert the component into a functional component that utilizes hooks. If you have already written every component in the app as a functional component, convert one of the functional components into a class component that utilizes at least two React lifecycle methods.
     - if you have already utilized a functional component in the app simply add a commment to identify your use of functional components as directed in the **Finish Project** section of this document.
-3. Make sure to utilize at least 3 hooks in your app. (eg: useState, useEffect, etc)
-4. Save your work and push these changes to Bitbucket.
-5. Create a Pull Request (PR) for your code and merge it with the `master` branch. (Do not delete this branch.)
+[x]. Make sure to utilize at least 3 hooks in your app. (eg: useState, useEffect, etc)
+[x]. Create a Pull Request (PR) for your code and merge it with the `master` branch. (Do not delete this branch.)
 
 
 ## Testing
