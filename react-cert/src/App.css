@@ -59,6 +59,12 @@ p {
   min-width: 160px;
 }
 
+.addingJoke{
+  flex: 1;
+  flex-direction: column;
+  color: white;
+}
+
 .test {
   flex: 1;
   padding-left: 12vw;

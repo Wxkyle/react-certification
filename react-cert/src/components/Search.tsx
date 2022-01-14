@@ -20,13 +20,13 @@ interface jokeResults {
 function Search() {
   const [buttonPressInput, setButtonPressInput] = useState(" ");
   const [displayJokeModal, setDisplayJokeModal] = useState<boolean>(false);
-  const [jokeValue, setJokeValue] = useState("");
+  const [jokeObject, setJokeValueObject] = useState({});
   const [searchBarInput, setSearchBarInput] = useAtom(searchBarAtom);
   const [modalEnabled, setModalEnabled] = useAtom(searchModalAtom);
 
-  const displayJoke = (value: jokeResults) => {
-    console.log("🔥🔥🔥", value);
-    setJokeValue(value.value);
+  const displayJoke = (valueObject: jokeResults) => {
+    console.log("🔥🔥🔥", valueObject);
+    setJokeValueObject(valueObject);
     setDisplayJokeModal(true);
     setModalEnabled(true);
   };
@@ -50,7 +50,7 @@ function Search() {
   return (
     <div>
       <Navbar loggedIn></Navbar>
-      <JokeFromSearchSelection value={jokeValue}></JokeFromSearchSelection>
+      <JokeFromSearchSelection value={jokeObject}></JokeFromSearchSelection>
       <div className="background">
         <div className="test">
           <h1>Search</h1>
@@ -72,6 +72,7 @@ function Search() {
           </div>
           <div className="regularText">
             {searchBarResult.items.map((value: any) => {
+              console.log(value)
               return (
                 <li
                   onClick={() => {

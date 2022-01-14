@@ -5,6 +5,7 @@ import { HasuraConfig } from "../hasura/hasuraConfig";
 import {
   categoriesModalAtom,
   chosenCategoryAtom,
+  lookedAtJokesAtom,
   searchModalAtom,
 } from "./AllAtoms";
 
@@ -26,15 +27,24 @@ function JokeFromSearchSelection(props: any) {
   const [modalEnabled, setModalEnabled] = useAtom(searchModalAtom);
   const { value } = props;
 
+  const [lookedAtJokes, setLookedAtJokes] = useAtom(lookedAtJokesAtom)
+
+  const lookedAtJokeArray: any[] = [...lookedAtJokes, value]
+
   // console.log("🔥🔥🔥", categoriesResult?.items);
+
+  const closeJoke = () => {
+    setModalEnabled(false)
+    setLookedAtJokes(lookedAtJokeArray)
+  }
 
   return (
     <div className={modalEnabled ? "categoryModal" : "hidden"}>
       <div className="categoryModalTitle">
         <div> </div>
-        <div onClick={() => setModalEnabled(false)}>X</div>
+        <div onClick={() => closeJoke()}>X</div>
       </div>
-      <div className="regularText">{`${value}`}</div>
+      <div className="regularText">{`${value.category} - ${value.value}`}</div>
     </div>
   );
 }

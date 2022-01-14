@@ -11,3 +11,12 @@ fragment jokesFields on Jokes {
 fragment categoriesFields on categories {
   category_name
 }
+
+fragment insertJokeField on insertJokes {
+  category
+  created_at
+  icon_url
+  updated_at
+  value
+  url
+}
