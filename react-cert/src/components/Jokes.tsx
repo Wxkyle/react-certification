@@ -1,6 +1,7 @@
 import { useReactGraphql } from "@tesseractcollective/react-graphql";
 import { useAtom } from "jotai";
 import { useState } from "react";
+import { JokesFieldsFragment, Jokes_Insert_Input } from "../hasura/generated/resourceApi";
 import { HasuraConfig } from "../hasura/hasuraConfig";
 import { lookedAtJokesAtom } from "./AllAtoms";
 import Navbar from "./Navbar";
@@ -24,14 +25,12 @@ function Jokes() {
 
   const { executeMutation } = useReactGraphql(
     HasuraConfig.Jokes
-  ).useInsert({
+  ).useInsert<JokesFieldsFragment, {}, Jokes_Insert_Input>({
     initialItem: {
-      category: { stateCategory },
-      created_at: { stateCreatedAt },
-      icon_url: { stateIconUrl },
-      updated_at: { stateUpdatedAt },
-      value: { stateValue },
-      url: { stateUrl },
+      created_at: stateCreatedAt,
+      icon_url: stateIconUrl,
+      updated_at: stateUpdatedAt,
+      url: stateUrl,
     }
   });
 
@@ -71,7 +70,7 @@ function Jokes() {
               // pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
               ></input>
             </div>
-            <button className="submitButton" onClick={() => { executeMutation() }}>Submit</button>
+            <button className="submitButton" onClick={() => { executeMutation({ category: stateCategory, value: stateValue }) }}>Submit</button>
           </div>
           <div>---------------------------------------</div>
           <ul>

@@ -115,9 +115,9 @@ https://formidable.com/open-source/urql/docs/basics/react-preact/
     - Create a way to display every joke that the user has view
     - The list should show the category of the joke and the actual joke and the order or time visited
     - There will need to be a way to organize/sort the list of jokes by category (ascending/descending) or by order visited (ascending/descending)
-5. On this same page add the ability to add a new joke to the database
-5. Save your work and push these changes to Bitbucket.
-6. Create a Pull Request (PR) for your code and merge it with the `master` branch. (Do not delete this branch.)
+[x]. On this same page add the ability to add a new joke to the database
+[x]. Save your work and push these changes to Bitbucket.
+[x]. Create a Pull Request (PR) for your code and merge it with the `master` branch. (Do not delete this branch.)
 
 
 ## Refactor to Utilize Hooks
