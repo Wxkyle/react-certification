@@ -110,9 +110,8 @@ https://formidable.com/open-source/urql/docs/basics/react-preact/
 
 ## State Management
 [x]. Create a new branch called `state-management` and checkout this branch.
-2. Refactor your app to use state management (use Jotai). You should at least have categories and viewed jokes stored in this state Store. Redux.
-3. If you choose to use Redux, create actions and reducers to correspond with your data model. If you have choosen a different state management option, set up you app to utilize the applicable management options.
-4. Use the `Jokes` page to display all of the jokes that the user has looked at or selected.
+[x]. Refactor your app to use state management (use Jotai). You should at least have categories and viewed jokes stored in this state Store. USED AN ATOM.
+[x]. Use the `Jokes` page to display all of the jokes that the user has looked at or selected.
     - Create a way to display every joke that the user has view
     - The list should show the category of the joke and the actual joke and the order or time visited
     - There will need to be a way to organize/sort the list of jokes by category (ascending/descending) or by order visited (ascending/descending)

@@ -1,8 +1,7 @@
 import { useReactGraphql } from "@tesseractcollective/react-graphql";
 import { useAtom } from "jotai";
-import { useEffect } from "react";
 import { HasuraConfig } from "../hasura/hasuraConfig";
-import { categoriesModalAtom, chosenCategoryAtom } from "./AllAtoms";
+import { categoriesModalAtom, chosenCategoryAtom, lookedAtJokesAtom } from "./AllAtoms";
 
 interface jokeResults {
   category: string;
@@ -20,8 +19,10 @@ function JokeFromCategorySelection(props: any) {
   //have it retrieve a joke with chosen category as the parameter
   //and display that joke in the Joke div down below
   const [modalEnabled, setModalEnabled] = useAtom(categoriesModalAtom);
-  const {} = props;
+  const { } = props;
   const [chosenCategory, setChosenCategory] = useAtom(chosenCategoryAtom);
+
+  const [lookedAtJokes, setLookedAtJokes] = useAtom(lookedAtJokesAtom)
 
   const categoriesResult: any = useReactGraphql(
     HasuraConfig.Jokes
@@ -29,15 +30,22 @@ function JokeFromCategorySelection(props: any) {
     where: { category: { _eq: `${chosenCategory}` } },
   });
 
-  // console.log("🔥🔥🔥", categoriesResult?.items);
-
   const jokeResultsItem: jokeResults = categoriesResult?.items[0];
+
+  const lookedAtJokeArray: any[] = [...lookedAtJokes, jokeResultsItem]
+
+  // console.log("🔥🔥🔥", lookedAtJokeArray);
+
+  const closeJoke = () => {
+    setModalEnabled(false)
+    setLookedAtJokes(lookedAtJokeArray)
+  }
 
   return (
     <div className={modalEnabled ? "categoryModal" : "hidden"}>
       <div className="categoryModalTitle">
         <div>{`Random Joke from ${chosenCategory} category`}</div>
-        <div onClick={() => setModalEnabled(false)}>X</div>
+        <div onClick={() => closeJoke()}>X</div>
       </div>
       <div className="regularText">{`${jokeResultsItem?.value}`}</div>
     </div>

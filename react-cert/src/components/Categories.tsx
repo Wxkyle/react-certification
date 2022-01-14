@@ -37,7 +37,7 @@ function Categories() {
         <div className="test">
           <h1>Categories</h1>
 
-          <div>
+          <ul>
             {categoriesResult?.items?.map((category: any) => {
               const categoryName = category?.category_name;
               return (
@@ -49,7 +49,7 @@ function Categories() {
                 </li>
               );
             })}
-          </div>
+          </ul>
         </div>
       </div>
     </div>
