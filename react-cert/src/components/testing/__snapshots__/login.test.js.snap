@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`matches snapshot 1`] = `
+<div>
+  <div>
+    <div
+      className="navbar"
+    >
+      <div>
+        <li
+          className="nav-link"
+        >
+          Home
+        </li>
+        <li
+          className="nav-link"
+        >
+          Categories
+        </li>
+        <li
+          className="nav-link"
+        >
+          Jokes
+        </li>
+        <li
+          className="nav-link"
+        >
+          Search
+        </li>
+      </div>
+    </div>
+  </div>
+  <div
+    className="background"
+  >
+    <div
+      className="test"
+    >
+      <h1>
+        Home
+      </h1>
+      <div
+        className="loginModal"
+      >
+        <div />
+        <div
+          className="login"
+        >
+          <div>
+            <p>
+              Email
+            </p>
+            <input
+              className="emailFormInput"
+              data-testid="emailLogin"
+              onChange={[Function]}
+              placeholder="email@email.com"
+              value={Object {}}
+            />
+          </div>
+          <div>
+            <p>
+              Password
+            </p>
+            <input
+              className="emailFormInput"
+              data-testid="passwordLogin"
+              onChange={[Function]}
+              placeholder="password"
+              value={Object {}}
+            />
+          </div>
+          <button
+            className="submitButton"
+            data-testid="buttonLogin"
+            onClick={[Function]}
+          >
+            Login
+          </button>
+        </div>
+        <div />
+      </div>
+      <div>
+        <div>
+          explanation of main landing page - list each page and give a short explanation of the contents of each of the pages in the app - provide links to each page (use a menu) - links only work if the users has "logged in"
+        </div>
+        <div>
+          <div>
+            Categories- This is a page that lists the categories of the site.
+          </div>
+        </div>
+        <div>
+          <div>
+            Jokes- This is a page that has funny stuff.
+          </div>
+        </div>
+        <div>
+          <div>
+            Search- This is where you can search things.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

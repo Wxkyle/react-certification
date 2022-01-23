@@ -4,7 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { loggedInAtom } from "./AllAtoms";
 import Navbar from "./Navbar";
 
-function Home() {
+function Home(emailLogin, passwordLogin) {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [emailErr, setEmailErr] = useState<boolean>(false);
@@ -56,7 +56,9 @@ function Home() {
                   onChange={(e) => setEmail(e.target.value)}
                   className="emailFormInput"
                   placeholder="email@email.com"
-                  // pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+                  data-testid="emailLogin"
+                  value={emailLogin}
+                // pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
                 ></input>
                 {emailErr ? (
                   <p style={{ color: "red" }}>Your email is invalid</p>
@@ -68,13 +70,15 @@ function Home() {
                   onChange={(e) => setPassword(e.target.value)}
                   className="emailFormInput"
                   placeholder="password"
-                  // pattern="^(?=.*\d)(?=.*[a-zA-Z]).{6,10}$"
+                  data-testid="passwordLogin"
+                  value={passwordLogin}
+                // pattern="^(?=.*\d)(?=.*[a-zA-Z]).{6,10}$"
                 ></input>
                 {pwdError ? (
                   <p style={{ color: "red" }}>Your password is invalid</p>
                 ) : null}
               </div>
-              <button onClick={() => validate()} className="submitButton">
+              <button data-testid="buttonLogin" onClick={() => validate()} className="submitButton">
                 {loading ? <div id="loading" /> : "Login"}
               </button>
             </div>
