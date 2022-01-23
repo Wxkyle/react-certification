@@ -1,7 +1,12 @@
+import { useReactGraphql } from "@tesseractcollective/react-graphql";
 import { useAtom } from "jotai";
+import React, { useEffect } from "react";
+import { HasuraConfig } from "../hasura/hasuraConfig";
 import {
+  categoriesModalAtom,
+  chosenCategoryAtom,
   lookedAtJokesAtom,
-  searchModalAtom
+  searchModalAtom,
 } from "./AllAtoms";
 
 interface jokeResults {
@@ -16,32 +21,50 @@ interface jokeResults {
 }
 
 function JokeFromSearchSelection(props: any) {
-  //use effect that updates when chosen category changes.
-  //have it retrieve a joke with chosen category as the parameter
-  //and display that joke in the Joke div down below
+
   const [modalEnabled, setModalEnabled] = useAtom(searchModalAtom);
   const { value } = props;
 
-  const [lookedAtJokes, setLookedAtJokes] = useAtom(lookedAtJokesAtom)
-
-  const lookedAtJokeArray: any[] = [...lookedAtJokes, value]
-
   // console.log("🔥🔥🔥", categoriesResult?.items);
-
-  const closeJoke = () => {
-    setModalEnabled(false)
-    setLookedAtJokes(lookedAtJokeArray)
-  }
 
   return (
     <div className={modalEnabled ? "categoryModal" : "hidden"}>
       <div className="categoryModalTitle">
         <div> </div>
-        <div onClick={() => closeJoke()}>X</div>
+        <div onClick={() => setModalEnabled(false)}>X</div>
       </div>
-      <div className="regularText">{`${value.category} - ${value.value}`}</div>
+      <div className="regularText">{`${value}`}</div>
     </div>
   );
 }
 
 export default JokeFromSearchSelection;
+
+// class JokeFromSearchSelection extends React.Component<jokeResults> {
+//   render() {
+//     const { value, category } = this.props;
+
+//     const [modalEnabled, setModalEnabled] = useAtom(searchModalAtom);
+//     const [lookedAtJokes, setLookedAtJokes] = useAtom(lookedAtJokesAtom)
+
+//     const lookedAtJokeArray: any[] = [...lookedAtJokes, value]
+
+//     // console.log("🔥🔥🔥", categoriesResult?.items);
+
+//     const closeJoke = () => {
+//       setModalEnabled(false)
+//       setLookedAtJokes(lookedAtJokeArray)
+//     }
+//     return (
+//       <div className={modalEnabled ? "categoryModal" : "hidden"}>
+//         <div className="categoryModalTitle">
+//           <div> </div>
+//           <div onClick={() => closeJoke()}>X</div>
+//         </div>
+//         <div className="regularText">{`${category} - ${value}`}</div>
+//       </div>
+//     )
+//   }
+// }
+
+// export default JokeFromSearchSelection;

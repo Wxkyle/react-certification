@@ -1,13 +1,13 @@
 // const env = process.argv[4] || 'dev';
 // const config = require(`../......`);
+const ADMIN_SECRET = require("./env.json");
 
 module.exports = {
   schema: [
     {
       [`https://evolved-newt-21.hasura.app/v1/graphql`]: {
         headers: {
-          "x-hasura-admin-secret":
-            "bcDLzO5MsB6ZO7oPyjt0oGLEZNPOqw4s8e4q159ipG1uy1QnLV6joLcb9sleVGbj",
+          "x-hasura-admin-secret": ADMIN_SECRET,
         },
       },
     },

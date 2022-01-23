@@ -1,0 +1,5 @@
+mutation m($item: Jokes_insert_input!) { #See Jokes_insert_input in generated/resourceApi/index
+    insert_Jokes_one(object: $item) {
+      ...jokesFields
+    }
+}
