@@ -68,3 +68,5 @@ export default JokeFromSearchSelection;
 // }
 
 // export default JokeFromSearchSelection;
+
+//put atom jokes on hard coded array in state

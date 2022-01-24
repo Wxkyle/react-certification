@@ -4,7 +4,7 @@ import { Link, useHistory } from "react-router-dom";
 import { loggedInAtom } from "./AllAtoms";
 import Navbar from "./Navbar";
 
-function Home(emailLogin, passwordLogin) {
+function Home() {
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [emailErr, setEmailErr] = useState<boolean>(false);
@@ -57,7 +57,6 @@ function Home(emailLogin, passwordLogin) {
                   className="emailFormInput"
                   placeholder="email@email.com"
                   data-testid="emailLogin"
-                  value={emailLogin}
                 // pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
                 ></input>
                 {emailErr ? (
@@ -71,7 +70,6 @@ function Home(emailLogin, passwordLogin) {
                   className="emailFormInput"
                   placeholder="password"
                   data-testid="passwordLogin"
-                  value={passwordLogin}
                 // pattern="^(?=.*\d)(?=.*[a-zA-Z]).{6,10}$"
                 ></input>
                 {pwdError ? (
