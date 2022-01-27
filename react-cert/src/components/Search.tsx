@@ -56,6 +56,7 @@ function Search() {
           <h1>Search</h1>
           <div className="login">
             <input
+              data-testid="searchBar"
               onChange={(e) => {
                 setSearchBarInput(e.target.value);
               }}

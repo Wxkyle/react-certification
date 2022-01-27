@@ -25,7 +25,7 @@ function Navbar(props: any) {
           </div>
         ) : (
           <div>
-            <li className="nav-link">Home</li>
+            <li data-testid="navLink" className="nav-link">Home</li>
             <li className="nav-link">Categories</li>
             <li className="nav-link">Jokes</li>
             <li className="nav-link">Search</li>

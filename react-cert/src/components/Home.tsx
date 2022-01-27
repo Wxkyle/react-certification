@@ -60,7 +60,9 @@ function Home() {
                 // pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
                 ></input>
                 {emailErr ? (
-                  <p style={{ color: "red" }}>Your email is invalid</p>
+                  <p
+                    data-testid="emailRedText"
+                    style={{ color: "red" }}>Your email is invalid</p>
                 ) : null}
               </div>
               <div>
@@ -73,7 +75,9 @@ function Home() {
                 // pattern="^(?=.*\d)(?=.*[a-zA-Z]).{6,10}$"
                 ></input>
                 {pwdError ? (
-                  <p style={{ color: "red" }}>Your password is invalid</p>
+                  <p
+                    data-testid="passwordRedText"
+                    style={{ color: "red" }}>Your password is invalid</p>
                 ) : null}
               </div>
               <button data-testid="buttonLogin" onClick={() => validate()} className="submitButton">

@@ -130,11 +130,11 @@ https://formidable.com/open-source/urql/docs/basics/react-preact/
 
 ## Testing
 If you have not been adding tests as you were developing the previous features, then add tests now.
-1. Create a new branch called `testing` and checkout this branch.
+[x]. Create a new branch called `testing` and checkout this branch.
 2. You will add unit tests to your project. Some examples may include:
     - Test routing component works correctly
     - Test that the http requests are configured correctly
-    - Test login component features (email & password validation)
+    [x] Test login component features (email & password validation)
     - Test the search bar works properly
 3. Make sure all tests are passing. We should be able to execute `npm run test` or `yarn test` to verify this ourselves. You may also add a custom script to your package.json file if you'd like.
 4. Achieve at least 80% test coverage for your project. We should be able to execute `npm run test --coverage` or `yarn test --coverage` to verify this ourselves. You may also add a custom script to your package.json file if you'd like.
