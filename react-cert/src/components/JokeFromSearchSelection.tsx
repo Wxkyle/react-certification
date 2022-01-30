@@ -1,12 +1,6 @@
-import { useReactGraphql } from "@tesseractcollective/react-graphql";
 import { useAtom } from "jotai";
-import React, { useEffect } from "react";
-import { HasuraConfig } from "../hasura/hasuraConfig";
 import {
-  categoriesModalAtom,
-  chosenCategoryAtom,
-  lookedAtJokesAtom,
-  searchModalAtom,
+  searchModalAtom
 } from "./AllAtoms";
 
 interface jokeResults {

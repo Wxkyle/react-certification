@@ -8,11 +8,11 @@ import Navbar from "./Navbar";
 
 function Jokes() {
   const [stateCategory, setstateCategory] = useState('')
-  const [stateCreatedAt, setstateCreatedAt] = useState('2020-01-05 13:42:20.262289')
-  const [stateIconUrl, setstateIconUrl] = useState('https://assets.chucknorris.host/img/avatar/chuck-norris.png')
-  const [stateUpdatedAt, setstateUpdatedAt] = useState('2020-01-05 13:42:20.262289')
+  const stateCreatedAt = '2020-01-05 13:42:20.262289'
+  const stateIconUrl = 'https://assets.chucknorris.host/img/avatar/chuck-norris.png'
+  const stateUpdatedAt = '2020-01-05 13:42:20.262289'
   const [stateValue, setstateValue] = useState('')
-  const [stateUrl, setstateUrl] = useState('https://api.chucknorris.io/jokes/3ew2Bz6gQmKbSTVCknrISQ')
+  const stateUrl = 'https://api.chucknorris.io/jokes/3ew2Bz6gQmKbSTVCknrISQ'
 
 
   const [lookedAtJokes, setLookedAtJokes] = useAtom(lookedAtJokesAtom)

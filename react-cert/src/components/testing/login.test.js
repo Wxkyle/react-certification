@@ -5,7 +5,7 @@ import { isTSAnyKeyword } from "@babel/types";
 
 import { render, cleanup, getByTestId } from "@testing-library/react";
 import "@testing-library/jest-dom/extend-expect";
-import Search from "../Search";
+// import Search from "../Search";
 
 import renderer from "react-test-renderer";
 
@@ -59,8 +59,8 @@ it("Does the http request work properly", () => {
   expect(getByTestId("navLink"));
 });
 
-it("search bar works properly", () => {
-  const { getByTestId } = render(<Search></Search>);
+// it("search bar works properly", () => {
+//   const { getByTestId } = render(<Search></Search>);
 
-  expect(getByTestId("searchBar"));
-});
+//   expect(getByTestId("searchBar"));
+// });
