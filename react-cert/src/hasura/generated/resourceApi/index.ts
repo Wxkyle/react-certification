@@ -1,8 +1,10 @@
 import gql from 'graphql-tag';
+import * as Urql from 'urql';
 export type Maybe<T> = T | null;
 export type Exact<T extends { [key: string]: unknown }> = { [K in keyof T]: T[K] };
 export type MakeOptional<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]?: Maybe<T[SubKey]> };
 export type MakeMaybe<T, K extends keyof T> = Omit<T, K> & { [SubKey in K]: Maybe<T[SubKey]> };
+export type Omit<T, K extends keyof T> = Pick<T, Exclude<keyof T, K>>;
 /** All built-in and custom scalars, mapped to their actual values */
 export type Scalars = {
   ID: string;
@@ -141,6 +143,13 @@ export type Jokes_Mutation_Response = {
   affected_rows: Scalars['Int'];
   /** data from the rows affected by the mutation */
   returning: Array<Jokes>;
+};
+
+/** input type for inserting object relation for remote table "Jokes" */
+export type Jokes_Obj_Rel_Insert_Input = {
+  data: Jokes_Insert_Input;
+  /** on conflict condition */
+  on_conflict?: Maybe<Jokes_On_Conflict>;
 };
 
 /** on conflict condition type for table "Jokes" */
@@ -291,6 +300,8 @@ export type String_Comparison_Exp = {
 /** columns and relationships of "categories" */
 export type Categories = {
   __typename?: 'categories';
+  /** An object relationship */
+  categoryOnJoke?: Maybe<Jokes>;
   category_name: Scalars['String'];
 };
 
@@ -321,6 +332,7 @@ export type Categories_Bool_Exp = {
   _and?: Maybe<Array<Categories_Bool_Exp>>;
   _not?: Maybe<Categories_Bool_Exp>;
   _or?: Maybe<Array<Categories_Bool_Exp>>;
+  categoryOnJoke?: Maybe<Jokes_Bool_Exp>;
   category_name?: Maybe<String_Comparison_Exp>;
 };
 
@@ -332,6 +344,7 @@ export enum Categories_Constraint {
 
 /** input type for inserting data into table "categories" */
 export type Categories_Insert_Input = {
+  categoryOnJoke?: Maybe<Jokes_Obj_Rel_Insert_Input>;
   category_name?: Maybe<Scalars['String']>;
 };
 
@@ -365,6 +378,7 @@ export type Categories_On_Conflict = {
 
 /** Ordering options when selecting data from "categories". */
 export type Categories_Order_By = {
+  categoryOnJoke?: Maybe<Jokes_Order_By>;
   category_name?: Maybe<Order_By>;
 };
 
@@ -658,6 +672,13 @@ export type JokesFieldsFragment = { __typename?: 'Jokes', category?: string | nu
 
 export type CategoriesFieldsFragment = { __typename?: 'categories', category_name: string };
 
+export type MMutationVariables = Exact<{
+  item: Jokes_Insert_Input;
+}>;
+
+
+export type MMutation = { __typename?: 'mutation_root', insert_Jokes_one?: { __typename?: 'Jokes', category?: string | null | undefined, created_at: any, icon_url: string, id: number, updated_at: any, value: string, url: string } | null | undefined };
+
 export const JokesFieldsFragmentDoc = gql`
     fragment jokesFields on Jokes {
   category
@@ -674,3 +695,14 @@ export const CategoriesFieldsFragmentDoc = gql`
   category_name
 }
     `;
+export const MDocument = gql`
+    mutation m($item: Jokes_insert_input!) {
+  insert_Jokes_one(object: $item) {
+    ...jokesFields
+  }
+}
+    ${JokesFieldsFragmentDoc}`;
+
+export function useMMutation() {
+  return Urql.useMutation<MMutation, MMutationVariables>(MDocument);
+};
