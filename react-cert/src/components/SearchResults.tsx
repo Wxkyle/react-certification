@@ -40,8 +40,8 @@ function SearchResults(props: any) {
         }
     }
 
-    useEffect(() => {
-    }, [searchBar])
+    // useEffect(() => {
+    // }, [searchBar])
 
     const searchBarResult: any = useReactGraphql(
         HasuraConfig.Jokes

@@ -24,14 +24,15 @@ function Home() {
   const validate = () => {
     setLoading(true);
 
+    !validEmail.test(email) ? setEmailErr(true) : setEmailErr(false); //look at notes for other way to test Jer told you
+    console.log("🚀 ~ file: Home.tsx ~ line 29 ~ setTimeout ~ validEmail.test(email)", validEmail.test(email))
+
+    !validPassword.test(password) ? setPwdError(true) : setPwdError(false);
+
+    if (!emailErr && !pwdError) {
+      savedLogin = JSON.stringify({ email: email, password: password });
+    }
     setTimeout(() => {
-      !validEmail.test(email) ? setEmailErr(true) : setEmailErr(false); //look at notes for other way to test Jer told you
-
-      !validPassword.test(password) ? setPwdError(true) : setPwdError(false);
-
-      if (!emailErr && !pwdError) {
-        savedLogin = JSON.stringify({ email: email, password: password });
-      }
       setLoading(false);
 
       if (email && password && !emailErr && !pwdError) {

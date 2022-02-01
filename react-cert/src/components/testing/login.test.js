@@ -48,9 +48,10 @@ it("correct email and password, should not show red text", () => {
   expect(getByTestId("emailLogin")).toHaveTextContent("wxgmailcom");
 
   const button = getByTestId("buttonLogin");
+  button.click();
 
-  expect(() => getByTestId("emailRedText")).toBeVisible();
-  expect(() => getByTestId("passwordRedText")).toBeVisible();
+  expect(getByTestId("emailRedText")).toBeVisible();
+  expect(getByTestId("passwordRedText")).toBeVisible();
 });
 
 it("Does the http request work properly", () => {
