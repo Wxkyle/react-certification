@@ -8,6 +8,7 @@ import "@testing-library/jest-dom/extend-expect";
 // import Search from "../Search";
 
 import renderer from "react-test-renderer";
+// import Search from "../Search";
 
 afterEach(cleanup);
 
@@ -22,7 +23,6 @@ it("correct email and password, should not show red text", () => {
   const emailInput = getByTestId("emailLogin");
   passwordInput.textContent = "Winter13!";
   emailInput.textContent = "wx@gmail.com";
-  console.log("a", passwordInput);
 
   // expect(()=> getByTestId('pasaaaswordLogin')).toThrowError()
   expect(getByTestId("passwordLogin")).toHaveTextContent("Winter13!");
@@ -41,7 +41,6 @@ it("correct email and password, should not show red text", () => {
   const emailInput = getByTestId("emailLogin");
   passwordInput.textContent = "winter13!";
   emailInput.textContent = "wxgmailcom";
-  console.log("a", passwordInput);
 
   // expect(()=> getByTestId('pasaaaswordLogin')).toThrowError()
   expect(getByTestId("passwordLogin")).toHaveTextContent("winter13!");
@@ -54,14 +53,22 @@ it("correct email and password, should not show red text", () => {
   expect(getByTestId("passwordRedText")).toBeVisible();
 });
 
+// it("does search bar work correctly", () => {
+//   const { getByTestId } = render(<Search></Search>);
+//   const searchBar = getByTestId("searchBar");
+//   searchBar.textContent = "chuck";
+
+//   // expect(()=> getByTestId('pasaaaswordLogin')).toThrowError()
+//   expect(getByTestId("passwordLogin")).toHaveTextContent("winter13!");
+
+//   const button = getByTestId("searchBarButton");
+//   button.click();
+
+//   expect(getByTestId("searchResults")).toBeVisible();
+// });
+
 it("Does the http request work properly", () => {
   const { getByTestId } = render(<Home></Home>);
 
   expect(getByTestId("navLink"));
 });
-
-// it("search bar works properly", () => {
-//   const { getByTestId } = render(<Search></Search>);
-
-//   expect(getByTestId("searchBar"));
-// });

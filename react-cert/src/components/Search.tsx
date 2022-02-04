@@ -27,6 +27,7 @@ class Search extends React.Component {
                 placeholder="search"
               ></input>
               <button
+                data-testid="searchBarButton"
                 onClick={() => {
                   this.setState(this.state)
                 }}
@@ -34,7 +35,8 @@ class Search extends React.Component {
                 Search
               </button>
             </div>
-            <SearchResults searchBar={this.state}></SearchResults>
+                
+            <SearchResults data-testid="searchResults" searchBar={this.state}></SearchResults>
           </div>
         </div>
       </div>

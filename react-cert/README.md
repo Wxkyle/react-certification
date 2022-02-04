@@ -135,7 +135,7 @@ If you have not been adding tests as you were developing the previous features, 
     - Test routing component works correctly
     - Test that the http requests are configured correctly
     [x] Test login component features (email & password validation)
-    - Test the search bar works properly
+    [x] Test the search bar works properly
 3. Make sure all tests are passing. We should be able to execute `npm run test` or `yarn test` to verify this ourselves. You may also add a custom script to your package.json file if you'd like.
 4. Achieve at least 80% test coverage for your project. We should be able to execute `npm run test --coverage` or `yarn test --coverage` to verify this ourselves. You may also add a custom script to your package.json file if you'd like.
 5. Save your work and push these changes to Bitbucket.
