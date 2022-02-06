@@ -1,13 +1,10 @@
+import { cleanup, render } from "@testing-library/react";
 import React from "react";
 import ReactDOM from "react-dom";
+import { Router } from "react-router-dom";
 import Home from "../Home";
-import { isTSAnyKeyword } from "@babel/types";
+import Navbar from "../Navbar";
 
-import { render, cleanup, getByTestId } from "@testing-library/react";
-import "@testing-library/jest-dom/extend-expect";
-// import Search from "../Search";
-
-import renderer from "react-test-renderer";
 // import Search from "../Search";
 
 afterEach(cleanup);
@@ -67,8 +64,41 @@ it("correct email and password, should not show red text", () => {
 //   expect(getByTestId("searchResults")).toBeVisible();
 // });
 
-it("Does the http request work properly", () => {
-  const { getByTestId } = render(<Home></Home>);
+it("correct email and password, should not show red text", () => {
+  const { getByTestId } = render(
+    <Router location="http://localhost:3000/">
+      <Navbar loggedIn></Navbar>
+    </Router>
+  );
+  const searchLink = getByTestId("navLink");
+  searchLink.click();
 
-  expect(getByTestId("navLink"));
+  expect(window.location.href).toBe("http://localhost:3000/Search");
 });
+
+// describe("Mock API", () => {
+
+//   function simulateAsyncCall(user) {
+//     return new Promise((resolve, reject) => {
+//       setTimeout(() => {
+
+//             if (user) {
+//               resolve({ status: 200, joke: user.joke });
+//             } else {
+//               resolve({ status: 404, message: 'Not Found' });
+//             }
+//             break;
+
+//         }, 300);
+//     });
+//   }
+
+//   const validRequest = {  user: "Jack", joke: 'chuck norris Joke' };
+
+//   it("returns a 200 status and adds the post to the database", () => {
+//     const mockApiCall = simulateAsyncCall(validRequest);
+//     return mockApiCall.then((response) => {
+//       expect(response.status).toBe(200);
+//     });
+//   });
+// });

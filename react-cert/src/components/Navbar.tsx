@@ -19,13 +19,13 @@ function Navbar(props: any) {
             <Link to="/Jokes">
               <li className="nav-link">Jokes</li>
             </Link>
-            <Link to="/Search">
+            <Link data-testid="navLink" to="/Search">
               <li className="nav-link">Search</li>
             </Link>
           </div>
         ) : (
           <div>
-            <li data-testid="navLink" className="nav-link">Home</li>
+            <li className="nav-link">Home</li>
             <li className="nav-link">Categories</li>
             <li className="nav-link">Jokes</li>
             <li className="nav-link">Search</li>
