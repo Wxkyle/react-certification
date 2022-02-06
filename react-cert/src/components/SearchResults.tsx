@@ -22,11 +22,10 @@ function SearchResults(props: any) {
     const [jokeObject, setJokeValueObject] = useState({});
     const [modalEnabled, setModalEnabled] = useAtom(searchModalAtom);
 
+    //#props
     const { searchBar } = props
-    console.log('🔥🔥🔥', searchBar.value)
 
     const displayJoke = (valueObject: jokeResults) => {
-        console.log("🔥🔥🔥", valueObject);
         setJokeValueObject(valueObject);
         setDisplayJokeModal(true);
         setModalEnabled(true);
@@ -49,14 +48,12 @@ function SearchResults(props: any) {
         where: { value: { _ilike: `%${searchBar.value}%` } },
     });
 
-    console.log(searchBarResult.items)
 
-    
+
     return <div>
         <JokeFromSearchSelection value={jokeObject}></JokeFromSearchSelection>
         <div className="regularText">
             {searchBarResult.items.map((value: any) => {
-                console.log(value)
                 return (
                     <li
                         onClick={() => {

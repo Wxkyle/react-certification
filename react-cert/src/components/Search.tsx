@@ -2,9 +2,13 @@ import React from "react";
 import Navbar from "./Navbar";
 import SearchResults from "./SearchResults";
 
+
+//# class component
 class Search extends React.Component {
   constructor(props: any) {
     super(props)
+    //# state
+    //# lifecycle method
     this.state = {
     }
   }
@@ -21,7 +25,9 @@ class Search extends React.Component {
               <input
                 data-testid="searchBar"
                 onChange={(e) => {
-                  this.setState({value: e.target.value})
+
+                  //# this.
+                  this.setState({ value: e.target.value })
                 }}
                 className="emailFormInput"
                 placeholder="search"
@@ -35,7 +41,7 @@ class Search extends React.Component {
                 Search
               </button>
             </div>
-                
+
             <SearchResults data-testid="searchResults" searchBar={this.state}></SearchResults>
           </div>
         </div>

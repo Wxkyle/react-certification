@@ -4,7 +4,12 @@ import { Link, useHistory } from "react-router-dom";
 import { loggedInAtom } from "./AllAtoms";
 import Navbar from "./Navbar";
 
+
+//#function component
 function Home() {
+
+  //# state
+  //# react hooks
   const [email, setEmail] = useState<string>("");
   const [password, setPassword] = useState<string>("");
   const [emailErr, setEmailErr] = useState<boolean>(false);
@@ -12,36 +17,46 @@ function Home() {
   const [loading, setLoading] = useState(false);
   const [loggedIn, setLoggedIn] = useAtom(loggedInAtom);
 
+  //#block scoped variable
   let savedLogin = {};
 
+  //#block scoped variable
   const validEmail = new RegExp(
     `^[a-zA-Z0-9.!#$%&'*+/=?^_\`{|}~-]+@[a-zA-Z0-9-]+(?:\\.[a-zA-Z0-9-]+)*$`
   );
+
+  //#block scoped variable
   const validPassword = new RegExp(`^(?=.*\\d)(?=.*[a-zA-Z]).{6,10}$`); //still needs to require one capital letter
 
   const history = useHistory();
 
+
+  //# arrow function
   const validate = () => {
     setLoading(true);
 
-    !validEmail.test(email) ? setEmailErr(true) : setEmailErr(false); //look at notes for other way to test Jer told you
-    console.log("🚀 ~ file: Home.tsx ~ line 29 ~ setTimeout ~ validEmail.test(email)", validEmail.test(email))
+    !validEmail.test(email) ? setEmailErr(true) : setEmailErr(false);
 
     !validPassword.test(password) ? setPwdError(true) : setPwdError(false);
 
     if (!emailErr && !pwdError) {
       savedLogin = JSON.stringify({ email: email, password: password });
     }
+
+    //#closure
     setTimeout(() => {
       setLoading(false);
 
       if (email && password && !emailErr && !pwdError) {
+        //# array function
         history.push("/Search");
         setLoggedIn(true);
       }
     }, 1500);
   };
 
+
+  //# JSX / rendering element
   return (
     <div>
       <Navbar loggedIn={loggedIn}></Navbar>
@@ -54,7 +69,9 @@ function Home() {
               <div>
                 <p>Email</p>
                 <input
+                  //# event handling
                   onChange={(e) => setEmail(e.target.value)}
+                  //# style
                   className="emailFormInput"
                   placeholder="email@email.com"
                   data-testid="emailLogin"
@@ -69,7 +86,9 @@ function Home() {
               <div>
                 <p>Password</p>
                 <input
+                  //# event handling
                   onChange={(e) => setPassword(e.target.value)}
+                  type='password'
                   className="emailFormInput"
                   placeholder="password"
                   data-testid="passwordLogin"
@@ -78,10 +97,13 @@ function Home() {
                 {pwdError ? (
                   <p
                     data-testid="passwordRedText"
+                    //# style
                     style={{ color: "red" }}>Your password is invalid</p>
                 ) : null}
               </div>
-              <button data-testid="buttonLogin" onClick={() => validate()} className="submitButton">
+              <button data-testid="buttonLogin"
+                //# arrow function
+                onClick={() => validate()} className="submitButton">
                 {loading ? <div id="loading" /> : "Login"}
               </button>
             </div>

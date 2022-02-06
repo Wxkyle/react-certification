@@ -20,14 +20,10 @@ function Categories() {
   const [modalEnabled, setModalEnabled] = useAtom(categoriesModalAtom);
 
   const categoryIsChosen = (category: string) => {
-    console.log("🔥🔥🔥", category);
     setChosenCategory(category);
     setDisplayModal(true);
     setModalEnabled(true);
   };
-
-  // console.log("🔥🔥🔥", jokesResult);
-  // console.log("🔥🔥🔥🔥🔥", chosenCategory);
 
   return (
     <div>
@@ -38,6 +34,9 @@ function Categories() {
           <h1>Categories</h1>
 
           <ul>
+            {
+              //# map
+            }
             {categoriesResult?.items?.map((category: any) => {
               const categoryName = category?.category_name;
               return (

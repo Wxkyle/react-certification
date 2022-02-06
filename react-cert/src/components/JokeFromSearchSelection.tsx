@@ -14,12 +14,14 @@ interface jokeResults {
   __typename: string;
 }
 
+//#function component
 function JokeFromSearchSelection(props: any) {
 
   const [modalEnabled, setModalEnabled] = useAtom(searchModalAtom);
+
+  //# destructuring
   const { value } = props;
 
-  // console.log("🔥🔥🔥", categoriesResult?.items);
 
   return (
     <div className={modalEnabled ? "categoryModal" : "hidden"}>
@@ -42,8 +44,6 @@ export default JokeFromSearchSelection;
 //     const [lookedAtJokes, setLookedAtJokes] = useAtom(lookedAtJokesAtom)
 
 //     const lookedAtJokeArray: any[] = [...lookedAtJokes, value]
-
-//     // console.log("🔥🔥🔥", categoriesResult?.items);
 
 //     const closeJoke = () => {
 //       setModalEnabled(false)
