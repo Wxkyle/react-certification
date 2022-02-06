@@ -14,6 +14,8 @@ interface jokeResults {
   __typename: string;
 }
 
+//#function component
+
 function JokeFromCategorySelection(props: any) {
   //use effect that updates when chosen category changes.
   //have it retrieve a joke with chosen category as the parameter
@@ -24,6 +26,8 @@ function JokeFromCategorySelection(props: any) {
 
   const [lookedAtJokes, setLookedAtJokes] = useAtom(lookedAtJokesAtom)
 
+
+  //# promise
   const categoriesResult: any = useReactGraphql(
     HasuraConfig.Jokes
   ).useInfiniteQueryMany({
@@ -32,10 +36,11 @@ function JokeFromCategorySelection(props: any) {
 
   const jokeResultsItem: jokeResults = categoriesResult?.items[0];
 
+  //# spread
   const lookedAtJokeArray: any[] = [...lookedAtJokes, jokeResultsItem]
 
-  // console.log("🔥🔥🔥", lookedAtJokeArray);
 
+  //# arrow function
   const closeJoke = () => {
     setModalEnabled(false)
     setLookedAtJokes(lookedAtJokeArray)

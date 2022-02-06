@@ -3,6 +3,9 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 
 function Navbar(props: any) {
+
+  //# props
+  //# destructuring
   const { loggedIn } = props;
 
   return (

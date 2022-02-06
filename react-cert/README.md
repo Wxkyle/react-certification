@@ -137,14 +137,14 @@ If you have not been adding tests as you were developing the previous features, 
     [x] Test login component features (email & password validation)
     [x] Test the search bar works properly
 [x]. Make sure all tests are passing. We should be able to execute `npm run test` or `yarn test` to verify this ourselves. You may also add a custom script to your package.json file if you'd like.
-4. Achieve at least 80% test coverage for your project. We should be able to execute `npm run test --coverage` or `yarn test --coverage` to verify this ourselves. You may also add a custom script to your package.json file if you'd like.
-5. Save your work and push these changes to Bitbucket.
-6. Create a Pull Request (PR) for your code and merge it with the master branch. (Do not delete this branch.)
+[x]. Achieve at least 80% test coverage for your project. We should be able to execute `npm run test --coverage` or `yarn test --coverage` to verify this ourselves. You may also add a custom script to your package.json file if you'd like.
+[x]. Save your work and push these changes to Bitbucket.
+[x]. Create a Pull Request (PR) for your code and merge it with the master branch. (Do not delete this branch.)
 
 
 ## Finish Project
-1. (If you have not already added the comments below to your project, create a `comments` branch)
-2. Inside of this branch you will add comments to your code to demonstrate your use and knowledge of Javascript fundamentals as well as React basics. This should not be hard, but it will help us recognize your knowledge and use of ES6+ basics. **You do not need to identify every instance**, just 1-2 instances to show you know and understand these concepts.
+[x]. (If you have not already added the comments below to your project, create a `comments` branch)
+[x]. Inside of this branch you will add comments to your code to demonstrate your use and knowledge of Javascript fundamentals as well as React basics. This should not be hard, but it will help us recognize your knowledge and use of ES6+ basics. **You do not need to identify every instance**, just 1-2 instances to show you know and understand these concepts.
 3. Comments should be preceded with a `#` and should look something like this:
 ```
   // #closure
@@ -155,36 +155,36 @@ or this:
   /* #map function */
   myArray.map(...);
 ```
-4. In your code you should add comments to demonstrate these **Javascript** fundamentals:
-    - Closures
-    - `this` keyword
-    - Arrow functions
-    - Array Functions
-        - Map
+[x]. In your code you should add comments to demonstrate these **Javascript** fundamentals:
+    [x] Closures
+    [x] `this` keyword
+    [x] Arrow functions
+    [x] Array Functions
+        [x] Map
         - Filter
         - Reduce
-    - Destructuring
-    - Spread Operator
-    - Promises
-    - Blocked-scoped variable `let`
-    - Blocked-scoped variable `const`
-5. In your code you should add comments to demonstrate these **React** basics:
-    - JSX
-    - Rendering Elements
-    - Class Components
-    - Functional Components
-    - Lifecycle methods (_at least 3 different methods_ should be commented in your class component(s))
-    - React Hooks (_at least 3 different hooks_ should be commented in your functional component(s))
-    - Event Handling
-    - Props
-    - State
-    - Lists & Keys
-    - Routing
-    - Redux Reducers, React Context (or other state management)
-    - Styles (2-3 different methods of applying styles to React components)
-6. Comments should be styled similar to the Javascript comments.
-7. **Create a basic.md file**. In this file list each item that you do not have in your app from the above Javascript and React basics. For each item, write a short code snippet and explanation of the item to demonstrate your understanding of it. In addition, choose 4 hooks (that are not used or identified in your app) and write a short code snippet and expalanation of its use.
-8. Finally, make sure to remove all console.log statements and unused commented code from your project.
+    [x] Destructuring
+    [x] Spread Operator
+    [x] Promises
+    [x] Blocked-scoped variable `let`
+    [x] Blocked-scoped variable `const`
+[x]. In your code you should add comments to demonstrate these **React** basics:
+    [x] JSX
+    [x] Rendering Elements
+    [x] Class Components
+    [x] Functional Components
+    [x] Lifecycle methods (_at least 3 different methods_ should be commented in your class component(s))
+    [x] React Hooks (_at least 3 different hooks_ should be commented in your functional component(s))
+    [x] Event Handling
+    [x] Props
+    [x] State
+    [x] Lists & Keys
+    [x] Routing
+    [x] Redux Reducers, React Context (or other state management)
+    [x] Styles (2-3 different methods of applying styles to React components)
+[x]. Comments should be styled similar to the Javascript comments.
+[x]. **Create a basic.md file**. In this file list each item that you do not have in your app from the above Javascript and React basics. For each item, write a short code snippet and explanation of the item to demonstrate your understanding of it. In addition, choose 4 hooks (that are not used or identified in your app) and write a short code snippet and expalanation of its use.
+[x]. Finally, make sure to remove all console.log statements and unused commented code from your project.
 9. Push and merge the commented code to your `Master` branch. (Do not delete this branch.)
 10. Email your practice manager/lead (<scripted.leaders@stgconsulting.com>) that you have completed the certification project and that it is now **ready for a final review!**
 11. The scripted pracitce lead will review your submission and, if they see issues with your project, may provide feedback that needs to be corrected before final approval is given.

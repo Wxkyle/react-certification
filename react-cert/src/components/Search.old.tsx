@@ -25,7 +25,6 @@ function Search() {
   const [modalEnabled, setModalEnabled] = useAtom(searchModalAtom);
 
   const displayJoke = (valueObject: jokeResults) => {
-    console.log("🔥🔥🔥", valueObject);
     setJokeValueObject(valueObject);
     setDisplayJokeModal(true);
     setModalEnabled(true);
@@ -37,7 +36,6 @@ function Search() {
     where: { value: { _ilike: `%${buttonPressInput}%` } },
   });
 
-  // console.log("🔥🔥🔥", searchBarResult?.items, displayJokeModal);
 
   function truncateString(str: string, num: number) {
     if (str.length > num) {
@@ -73,7 +71,6 @@ function Search() {
           </div>
           <div className="regularText">
             {searchBarResult.items.map((value: any) => {
-              console.log(value)
               return (
                 <li
                   onClick={() => {

@@ -6,6 +6,8 @@ import { HasuraConfig } from "../hasura/hasuraConfig";
 import { lookedAtJokesAtom } from "./AllAtoms";
 import Navbar from "./Navbar";
 
+
+//#function component
 function Jokes() {
   const [stateCategory, setstateCategory] = useState('')
   const stateCreatedAt = '2020-01-05 13:42:20.262289'
@@ -20,8 +22,6 @@ function Jokes() {
   const categoriesResult = useReactGraphql(
     HasuraConfig.categories
   ).useInfiniteQueryMany();
-
-  console.log(lookedAtJokes)
 
   const { executeMutation } = useReactGraphql(
     HasuraConfig.Jokes
@@ -49,6 +49,7 @@ function Jokes() {
               ></input>
               <datalist id='categorys'>
                 {categoriesResult?.items?.map((category: any) => {
+                  //# key
                   const categoryName = category?.category_name;
                   return (
                     <option
@@ -61,6 +62,7 @@ function Jokes() {
             </div>
             <div>Joke:
               <input
+                //# event handling
                 onChange={(e) => setstateValue(e.target.value)}
                 className="joke"
                 placeholder="Put a joke here"
@@ -71,6 +73,10 @@ function Jokes() {
           </div>
           <div>---------------------------------------</div>
           <ul>
+
+            {
+              //# map
+            }
             {lookedAtJokes.map((item) => {
               return (
                 <li
