@@ -183,7 +183,7 @@ or this:
     [x] Redux Reducers, React Context (or other state management)
     [x] Styles (2-3 different methods of applying styles to React components)
 [x]. Comments should be styled similar to the Javascript comments.
-7. **Create a basic.md file**. In this file list each item that you do not have in your app from the above Javascript and React basics. For each item, write a short code snippet and explanation of the item to demonstrate your understanding of it. In addition, choose 4 hooks (that are not used or identified in your app) and write a short code snippet and expalanation of its use.
+[x]. **Create a basic.md file**. In this file list each item that you do not have in your app from the above Javascript and React basics. For each item, write a short code snippet and explanation of the item to demonstrate your understanding of it. In addition, choose 4 hooks (that are not used or identified in your app) and write a short code snippet and expalanation of its use.
 [x]. Finally, make sure to remove all console.log statements and unused commented code from your project.
 9. Push and merge the commented code to your `Master` branch. (Do not delete this branch.)
 10. Email your practice manager/lead (<scripted.leaders@stgconsulting.com>) that you have completed the certification project and that it is now **ready for a final review!**
