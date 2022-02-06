@@ -1069,6 +1069,45 @@
       },
       {
         "kind": "INPUT_OBJECT",
+        "name": "Jokes_obj_rel_insert_input",
+        "description": "input type for inserting object relation for remote table \"Jokes\"",
+        "fields": null,
+        "inputFields": [
+          {
+            "name": "data",
+            "description": null,
+            "type": {
+              "kind": "NON_NULL",
+              "name": null,
+              "ofType": {
+                "kind": "INPUT_OBJECT",
+                "name": "Jokes_insert_input",
+                "ofType": null
+              }
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
+            "name": "on_conflict",
+            "description": "on conflict condition",
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "Jokes_on_conflict",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          }
+        ],
+        "interfaces": null,
+        "enumValues": null,
+        "possibleTypes": null
+      },
+      {
+        "kind": "INPUT_OBJECT",
         "name": "Jokes_on_conflict",
         "description": "on conflict condition type for table \"Jokes\"",
         "fields": null,
@@ -2792,6 +2831,18 @@
         "description": "columns and relationships of \"categories\"",
         "fields": [
           {
+            "name": "categoryOnJoke",
+            "description": "An object relationship",
+            "args": [],
+            "type": {
+              "kind": "OBJECT",
+              "name": "Jokes",
+              "ofType": null
+            },
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "category_name",
             "description": null,
             "args": [],
@@ -3003,6 +3054,18 @@
             "deprecationReason": null
           },
           {
+            "name": "categoryOnJoke",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "Jokes_bool_exp",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
+          {
             "name": "category_name",
             "description": null,
             "type": {
@@ -3042,6 +3105,18 @@
         "description": "input type for inserting data into table \"categories\"",
         "fields": null,
         "inputFields": [
+          {
+            "name": "categoryOnJoke",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "Jokes_obj_rel_insert_input",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
           {
             "name": "category_name",
             "description": null,
@@ -3225,6 +3300,18 @@
         "description": "Ordering options when selecting data from \"categories\".",
         "fields": null,
         "inputFields": [
+          {
+            "name": "categoryOnJoke",
+            "description": null,
+            "type": {
+              "kind": "INPUT_OBJECT",
+              "name": "Jokes_order_by",
+              "ofType": null
+            },
+            "defaultValue": null,
+            "isDeprecated": false,
+            "deprecationReason": null
+          },
           {
             "name": "category_name",
             "description": null,

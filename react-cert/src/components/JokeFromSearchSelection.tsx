@@ -1,12 +1,6 @@
-import { useReactGraphql } from "@tesseractcollective/react-graphql";
 import { useAtom } from "jotai";
-import React, { useEffect } from "react";
-import { HasuraConfig } from "../hasura/hasuraConfig";
 import {
-  categoriesModalAtom,
-  chosenCategoryAtom,
-  lookedAtJokesAtom,
-  searchModalAtom,
+  searchModalAtom
 } from "./AllAtoms";
 
 interface jokeResults {
@@ -68,3 +62,5 @@ export default JokeFromSearchSelection;
 // }
 
 // export default JokeFromSearchSelection;
+
+//put atom jokes on hard coded array in state

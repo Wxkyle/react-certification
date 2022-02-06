@@ -19,7 +19,7 @@ function Navbar(props: any) {
             <Link to="/Jokes">
               <li className="nav-link">Jokes</li>
             </Link>
-            <Link to="/Search">
+            <Link data-testid="navLink" to="/Search">
               <li className="nav-link">Search</li>
             </Link>
           </div>

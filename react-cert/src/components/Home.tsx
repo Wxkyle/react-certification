@@ -24,14 +24,15 @@ function Home() {
   const validate = () => {
     setLoading(true);
 
+    !validEmail.test(email) ? setEmailErr(true) : setEmailErr(false); //look at notes for other way to test Jer told you
+    console.log("🚀 ~ file: Home.tsx ~ line 29 ~ setTimeout ~ validEmail.test(email)", validEmail.test(email))
+
+    !validPassword.test(password) ? setPwdError(true) : setPwdError(false);
+
+    if (!emailErr && !pwdError) {
+      savedLogin = JSON.stringify({ email: email, password: password });
+    }
     setTimeout(() => {
-      !validEmail.test(email) ? setEmailErr(true) : setEmailErr(false); //look at notes for other way to test Jer told you
-
-      !validPassword.test(password) ? setPwdError(true) : setPwdError(false);
-
-      if (!emailErr && !pwdError) {
-        savedLogin = JSON.stringify({ email: email, password: password });
-      }
       setLoading(false);
 
       if (email && password && !emailErr && !pwdError) {
@@ -56,10 +57,13 @@ function Home() {
                   onChange={(e) => setEmail(e.target.value)}
                   className="emailFormInput"
                   placeholder="email@email.com"
-                  // pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+                  data-testid="emailLogin"
+                // pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
                 ></input>
                 {emailErr ? (
-                  <p style={{ color: "red" }}>Your email is invalid</p>
+                  <p
+                    data-testid="emailRedText"
+                    style={{ color: "red" }}>Your email is invalid</p>
                 ) : null}
               </div>
               <div>
@@ -68,13 +72,16 @@ function Home() {
                   onChange={(e) => setPassword(e.target.value)}
                   className="emailFormInput"
                   placeholder="password"
-                  // pattern="^(?=.*\d)(?=.*[a-zA-Z]).{6,10}$"
+                  data-testid="passwordLogin"
+                // pattern="^(?=.*\d)(?=.*[a-zA-Z]).{6,10}$"
                 ></input>
                 {pwdError ? (
-                  <p style={{ color: "red" }}>Your password is invalid</p>
+                  <p
+                    data-testid="passwordRedText"
+                    style={{ color: "red" }}>Your password is invalid</p>
                 ) : null}
               </div>
-              <button onClick={() => validate()} className="submitButton">
+              <button data-testid="buttonLogin" onClick={() => validate()} className="submitButton">
                 {loading ? <div id="loading" /> : "Login"}
               </button>
             </div>

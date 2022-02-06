@@ -6,13 +6,14 @@ import Categories from "./components/Categories";
 import Home from "./components/Home";
 import Jokes from "./components/Jokes";
 import Search from "./components/Search";
+import ADMIN_SECRET from '../.env.json'
 
 const client = createClient({
   url: "https://evolved-newt-21.hasura.app/v1/graphql",
   fetchOptions: {
     headers: {
       "x-hasura-admin-secret":
-        "bcDLzO5MsB6ZO7oPyjt0oGLEZNPOqw4s8e4q159ipG1uy1QnLV6joLcb9sleVGbj",
+        "M04DATtJhF1Uh0Eb2k65IxzIPytd1vATnDI4tnCRRZEgbg608K4uNsjmSKv6TZzD",
     },
   },
 });

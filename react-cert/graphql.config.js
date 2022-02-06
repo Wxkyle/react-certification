@@ -1,6 +1,6 @@
 // const env = process.argv[4] || 'dev';
 // const config = require(`../......`);
-const ADMIN_SECRET = require("./env.json");
+const ADMIN_SECRET = require("./.env.json");
 
 module.exports = {
   schema: [
