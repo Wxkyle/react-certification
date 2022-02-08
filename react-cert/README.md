@@ -122,7 +122,7 @@ https://formidable.com/open-source/urql/docs/basics/react-preact/
 
 ## Refactor to Utilize Hooks
 [x]. Create a new branch called `hooks` and checkout this branch.
-2. Choose one of your class components and convert the component into a functional component that utilizes hooks. If you have already written every component in the app as a functional component, convert one of the functional components into a class component that utilizes at least two React lifecycle methods.
+[x]. Choose one of your class components and convert the component into a functional component that utilizes hooks. If you have already written every component in the app as a functional component, convert one of the functional components into a class component that utilizes at least two React lifecycle methods.
     - if you have already utilized a functional component in the app simply add a commment to identify your use of functional components as directed in the **Finish Project** section of this document.
 [x]. Make sure to utilize at least 3 hooks in your app. (eg: useState, useEffect, etc)
 [x]. Create a Pull Request (PR) for your code and merge it with the `master` branch. (Do not delete this branch.)
@@ -145,7 +145,7 @@ If you have not been adding tests as you were developing the previous features, 
 ## Finish Project
 [x]. (If you have not already added the comments below to your project, create a `comments` branch)
 [x]. Inside of this branch you will add comments to your code to demonstrate your use and knowledge of Javascript fundamentals as well as React basics. This should not be hard, but it will help us recognize your knowledge and use of ES6+ basics. **You do not need to identify every instance**, just 1-2 instances to show you know and understand these concepts.
-3. Comments should be preceded with a `#` and should look something like this:
+[x]. Comments should be preceded with a `#` and should look something like this:
 ```
   // #closure
   function myClosure() = {...}
@@ -185,8 +185,7 @@ or this:
 [x]. Comments should be styled similar to the Javascript comments.
 [x]. **Create a basic.md file**. In this file list each item that you do not have in your app from the above Javascript and React basics. For each item, write a short code snippet and explanation of the item to demonstrate your understanding of it. In addition, choose 4 hooks (that are not used or identified in your app) and write a short code snippet and expalanation of its use.
 [x]. Finally, make sure to remove all console.log statements and unused commented code from your project.
-9. Push and merge the commented code to your `Master` branch. (Do not delete this branch.)
-10. Email your practice manager/lead (<scripted.leaders@stgconsulting.com>) that you have completed the certification project and that it is now **ready for a final review!**
+[x]. Push and merge the commented code to your `Master` branch. (Do not delete this branch.)
 11. The scripted pracitce lead will review your submission and, if they see issues with your project, may provide feedback that needs to be corrected before final approval is given.
 
 

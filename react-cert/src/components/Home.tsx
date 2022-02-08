@@ -26,7 +26,7 @@ function Home() {
   );
 
   //#block scoped variable
-  const validPassword = new RegExp(`^(?=.*\\d)(?=.*[a-zA-Z]).{6,10}$`); //still needs to require one capital letter
+  const validPassword = new RegExp(`^(?=.*\\d)(?=.*[a-zA-Z]).{6,10}$`);
 
   const history = useHistory();
 
