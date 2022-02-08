@@ -111,12 +111,6 @@ function Home() {
           </div>
           <div>
             <div>
-              explanation of main landing page - list each page and give a short
-              explanation of the contents of each of the pages in the app -
-              provide links to each page (use a menu) - links only work if the
-              users has "logged in"
-            </div>
-            <div>
               {loggedIn ? (
                 <div>
                   <Link to="/Categories">Categories</Link>- This is a page that
