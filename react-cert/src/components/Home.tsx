@@ -112,35 +112,34 @@ function Home() {
           <div>
             <div>
               {loggedIn ? (
-                <div>
+                <div className="regularText">
                   <Link to="/Categories">Categories</Link>- This is a page that
-                  lists the categories of the site.
+                  lists the categories of jokes you can see.
                 </div>
               ) : (
-                <div>
-                  Categories- This is a page that lists the categories of the
-                  site.
+                <div className="regularText">
+                  Categories- This is a page that lists the categories of jokes you can see.
                 </div>
               )}
             </div>
             <div>
               {loggedIn ? (
-                <div>
+                <div className="regularText">
                   <Link to="/Jokes">Jokes</Link>- This is a page that has funny
                   stuff.
                 </div>
               ) : (
-                <div>Jokes- This is a page that has funny stuff.</div>
+                <div className="regularText">Jokes- This is a page that has funny stuff.</div>
               )}
             </div>
             <div>
               {loggedIn ? (
-                <div>
+                <div className="regularText">
                   <Link to="/Search">Search</Link>- This is where you can search
-                  things.
+                  Jokes.
                 </div>
               ) : (
-                <div>Search- This is where you can search things.</div>
+                <div className="regularText">Search- This is where you can search Jokes.</div>
               )}
             </div>
           </div>
