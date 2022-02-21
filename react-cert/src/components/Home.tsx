@@ -27,6 +27,7 @@ function Home() {
 
   //#block scoped variable
   const validPassword = new RegExp(`^(?=.*\\d)(?=.*[a-zA-Z]).{6,10}$`);
+  // const validPassword = new RegExp(`^(?=.*[A-Za-z])(?=.*\d)(?=.*[@$!%*#?&])[A-Za-z\d@$!%*#?&]{6,10}$`);
 
   const history = useHistory();
 

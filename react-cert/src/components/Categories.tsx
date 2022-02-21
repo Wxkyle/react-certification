@@ -1,4 +1,4 @@
-import { useReactGraphql } from "@tesseractcollective/react-graphql";
+import { UseInfiniteQueryManyProps, useReactGraphql } from "@tesseractcollective/react-graphql";
 import { useAtom } from "jotai";
 import { useState } from "react";
 import { HasuraConfig } from "../hasura/hasuraConfig";
@@ -7,9 +7,7 @@ import JokeFromCategorySelection from "./JokeFromCategorySelection";
 import Navbar from "./Navbar";
 
 function Categories() {
-  const jokesResult = useReactGraphql(
-    HasuraConfig.Jokes
-  ).useInfiniteQueryMany();
+
   const categoriesResult = useReactGraphql(
     HasuraConfig.categories
   ).useInfiniteQueryMany();
@@ -17,7 +15,7 @@ function Categories() {
   const [displayModal, setDisplayModal] = useState<boolean>(false);
   const [chosenCategory, setChosenCategory] = useAtom(chosenCategoryAtom);
 
-  const [modalEnabled, setModalEnabled] = useAtom(categoriesModalAtom);
+  const [, setModalEnabled] = useAtom(categoriesModalAtom);
 
   const categoryIsChosen = (category: string) => {
     setChosenCategory(category);
@@ -37,7 +35,7 @@ function Categories() {
             {
               //# map
             }
-            {categoriesResult?.items?.map((category: any) => {
+            {categoriesResult?.items?.map((category) => {
               const categoryName = category?.category_name;
               return (
                 <li

@@ -48,7 +48,7 @@ function Jokes() {
               // pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
               ></input>
               <datalist id='categorys'>
-                {categoriesResult?.items?.map((category: any) => {
+                {categoriesResult?.items?.map((category) => {
                   //# key
                   const categoryName = category?.category_name;
                   return (
@@ -71,7 +71,7 @@ function Jokes() {
             </div>
             <button className="submitButton" onClick={() => { executeMutation({ category: stateCategory, value: stateValue }) }}>Submit</button>
           </div>
-          <div>---------------------------------------</div>
+          <div className="regularText">Viewed Jokes</div>
           <ul>
 
             {

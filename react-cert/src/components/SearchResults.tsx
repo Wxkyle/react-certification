@@ -12,15 +12,17 @@ interface jokeResults {
     id: number;
     updated_at: string;
     url: string;
-    value: string;
+    value: {};
     __typename: string;
 }
 
-function SearchResults(props: any) {
+function SearchResults(props: { searchBar: { value: string } }) {
 
     const [displayJokeModal, setDisplayJokeModal] = useState<boolean>(false);
     const [jokeObject, setJokeValueObject] = useState({});
     const [modalEnabled, setModalEnabled] = useAtom(searchModalAtom);
+
+    console.log(jokeObject)
 
     //#props
     const { searchBar } = props
@@ -42,7 +44,7 @@ function SearchResults(props: any) {
     // useEffect(() => {
     // }, [searchBar])
 
-    const searchBarResult: any = useReactGraphql(
+    const searchBarResult = useReactGraphql(
         HasuraConfig.Jokes
     ).useInfiniteQueryMany({
         where: { value: { _ilike: `%${searchBar.value}%` } },
@@ -53,7 +55,7 @@ function SearchResults(props: any) {
     return <div>
         <JokeFromSearchSelection value={jokeObject}></JokeFromSearchSelection>
         <div className="regularText">
-            {searchBarResult.items.map((value: any) => {
+            {searchBarResult.items.map((value) => {
                 return (
                     <li
                         onClick={() => {

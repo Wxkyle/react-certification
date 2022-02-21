@@ -4,23 +4,25 @@ import {
 } from "./AllAtoms";
 
 interface jokeResults {
-  category: string;
-  created_at: string;
-  icon_url: string;
-  id: number;
-  updated_at: string;
-  url: string;
-  value: string;
-  __typename: string;
+  category?: string;
+  created_at?: string;
+  icon_url?: string;
+  id?: number;
+  updated_at?: string;
+  url?: string;
+  value: {};
+  __typename?: string;
 }
 
 //#function component
-function JokeFromSearchSelection(props: any) {
+function JokeFromSearchSelection(props: jokeResults) {
 
   const [modalEnabled, setModalEnabled] = useAtom(searchModalAtom);
 
   //# destructuring
   const { value } = props;
+
+  console.log(value)
 
 
   return (
