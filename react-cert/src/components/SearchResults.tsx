@@ -1,22 +1,12 @@
 import { useReactGraphql } from "@tesseractcollective/react-graphql";
 import { useAtom } from "jotai";
 import { useEffect, useState } from "react";
+import { JokesFieldsFragment } from "../hasura/generated/resourceApi";
 import { HasuraConfig } from "../hasura/hasuraConfig";
 import { searchModalAtom } from "./AllAtoms";
 import JokeFromSearchSelection from "./JokeFromSearchSelection";
 
-interface jokeResults {
-    category: string;
-    created_at: string;
-    icon_url: string;
-    id: number;
-    updated_at: string;
-    url: string;
-    value: {};
-    __typename: string;
-}
-
-function SearchResults(props: { searchBar: { value: string } }) {
+function SearchResults(props: { searchBar: { value?: string } }) {
 
     const [displayJokeModal, setDisplayJokeModal] = useState<boolean>(false);
     const [jokeObject, setJokeValueObject] = useState({});
@@ -27,7 +17,7 @@ function SearchResults(props: { searchBar: { value: string } }) {
     //#props
     const { searchBar } = props
 
-    const displayJoke = (valueObject: jokeResults) => {
+    const displayJoke = (valueObject: JokesFieldsFragment) => {
         setJokeValueObject(valueObject);
         setDisplayJokeModal(true);
         setModalEnabled(true);
@@ -46,7 +36,7 @@ function SearchResults(props: { searchBar: { value: string } }) {
 
     const searchBarResult = useReactGraphql(
         HasuraConfig.Jokes
-    ).useInfiniteQueryMany({
+    ).useInfiniteQueryMany<JokesFieldsFragment>({
         where: { value: { _ilike: `%${searchBar.value}%` } },
     });
 

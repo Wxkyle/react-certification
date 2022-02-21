@@ -1,18 +1,8 @@
 import { useReactGraphql } from "@tesseractcollective/react-graphql";
 import { useAtom } from "jotai";
+import { JokesFieldsFragment } from "../hasura/generated/resourceApi";
 import { HasuraConfig } from "../hasura/hasuraConfig";
 import { categoriesModalAtom, chosenCategoryAtom, lookedAtJokesAtom } from "./AllAtoms";
-
-interface jokeResults {
-  category: string;
-  created_at: string;
-  icon_url: string;
-  id: number;
-  updated_at: string;
-  url: string;
-  value: string;
-  __typename: string;
-}
 
 //#function component
 
@@ -29,7 +19,7 @@ function JokeFromCategorySelection() {
   //# promise
   const categoriesResult = useReactGraphql(
     HasuraConfig.Jokes
-  ).useInfiniteQueryMany({
+  ).useInfiniteQueryMany<JokesFieldsFragment>({
     where: { category: { _eq: `${chosenCategory}` } },
   });
 

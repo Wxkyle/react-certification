@@ -5,8 +5,8 @@ import SearchResults from "./SearchResults";
 
 //# class component
 class Search extends React.Component {
-  constructor(props) {
-    super(props)
+  constructor() {
+    super({})
     //# state
     //# lifecycle method
     this.state = {

@@ -1,6 +1,7 @@
 import { UseInfiniteQueryManyProps, useReactGraphql } from "@tesseractcollective/react-graphql";
 import { useAtom } from "jotai";
 import { useState } from "react";
+import { CategoriesFieldsFragment } from "../hasura/generated/resourceApi";
 import { HasuraConfig } from "../hasura/hasuraConfig";
 import { categoriesModalAtom, chosenCategoryAtom } from "./AllAtoms";
 import JokeFromCategorySelection from "./JokeFromCategorySelection";
@@ -10,7 +11,7 @@ function Categories() {
 
   const categoriesResult = useReactGraphql(
     HasuraConfig.categories
-  ).useInfiniteQueryMany();
+  ).useInfiniteQueryMany<CategoriesFieldsFragment>();
 
   const [displayModal, setDisplayModal] = useState<boolean>(false);
   const [chosenCategory, setChosenCategory] = useAtom(chosenCategoryAtom);

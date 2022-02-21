@@ -1,7 +1,7 @@
 import { useReactGraphql } from "@tesseractcollective/react-graphql";
 import { useAtom } from "jotai";
 import { useState } from "react";
-import { JokesFieldsFragment, Jokes_Insert_Input } from "../hasura/generated/resourceApi";
+import { CategoriesFieldsFragment, JokesFieldsFragment, Jokes_Insert_Input } from "../hasura/generated/resourceApi";
 import { HasuraConfig } from "../hasura/hasuraConfig";
 import { lookedAtJokesAtom } from "./AllAtoms";
 import Navbar from "./Navbar";
@@ -21,7 +21,7 @@ function Jokes() {
 
   const categoriesResult = useReactGraphql(
     HasuraConfig.categories
-  ).useInfiniteQueryMany();
+  ).useInfiniteQueryMany<CategoriesFieldsFragment>();
 
   const { executeMutation } = useReactGraphql(
     HasuraConfig.Jokes
