@@ -1,11 +1,11 @@
-import { UseInfiniteQueryManyProps, useReactGraphql } from "@tesseractcollective/react-graphql";
+import { useReactGraphql } from "@tesseractcollective/react-graphql";
 import { useAtom } from "jotai";
 import { useState } from "react";
 import { CategoriesFieldsFragment } from "../hasura/generated/resourceApi";
 import { HasuraConfig } from "../hasura/hasuraConfig";
-import { categoriesModalAtom, chosenCategoryAtom } from "./AllAtoms";
-import JokeFromCategorySelection from "./JokeFromCategorySelection";
+import { enableModalAtom } from "./AllAtoms";
 import Navbar from "./Navbar";
+import SelectedJokeModal from "./SelectedJokeModal";
 
 function Categories() {
 
@@ -13,10 +13,9 @@ function Categories() {
     HasuraConfig.categories
   ).useInfiniteQueryMany<CategoriesFieldsFragment>();
 
-  const [displayModal, setDisplayModal] = useState<boolean>(false);
-  const [chosenCategory, setChosenCategory] = useAtom(chosenCategoryAtom);
-
-  const [, setModalEnabled] = useAtom(categoriesModalAtom);
+  const [, setDisplayModal] = useState<boolean>(false);
+  const [chosenCategory, setChosenCategory] = useState<string | undefined>();
+  const [, setModalEnabled] = useAtom(enableModalAtom);
 
   const categoryIsChosen = (category: string) => {
     setChosenCategory(category);
@@ -27,7 +26,7 @@ function Categories() {
   return (
     <div>
       <Navbar loggedIn></Navbar>
-      <JokeFromCategorySelection></JokeFromCategorySelection>
+      <SelectedJokeModal category={chosenCategory}></SelectedJokeModal>
       <div className="background">
         <div className="test">
           <h1>Categories</h1>

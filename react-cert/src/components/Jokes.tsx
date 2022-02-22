@@ -19,11 +19,16 @@ function Jokes() {
 
   const [lookedAtJokes, setLookedAtJokes] = useAtom(lookedAtJokesAtom)
 
+  const allJokesResult = useReactGraphql(
+    HasuraConfig.Jokes
+  ).useInfiniteQueryMany<JokesFieldsFragment>({
+  });
+
   const categoriesResult = useReactGraphql(
     HasuraConfig.categories
   ).useInfiniteQueryMany<CategoriesFieldsFragment>();
 
-  const { executeMutation } = useReactGraphql(
+  const { executeMutation, mutating } = useReactGraphql(
     HasuraConfig.Jokes
   ).useInsert<JokesFieldsFragment, {}, Jokes_Insert_Input>({
     initialItem: {
@@ -69,9 +74,28 @@ function Jokes() {
               // pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
               ></input>
             </div>
-            <button className="submitButton" onClick={() => { executeMutation({ category: stateCategory, value: stateValue }) }}>Submit</button>
+            <button className="submitButton" onClick={() => { executeMutation({ category: stateCategory, value: stateValue }) }}>{mutating ? <div id="loading" /> : "Add Joke"}</button>
           </div>
-          <div className="regularText">Viewed Jokes</div>
+
+          <div className="regularText">All Jokes</div>
+          <ul>
+
+            {
+              //# map
+            }
+            {allJokesResult.items.map((item) => {
+              return (
+                <li
+                  className="regularText"
+                  onClick={() => { }}
+                >
+                  {item.category} - {item.value}
+                </li>
+              );
+            })}
+          </ul>
+
+          {/* <div className="regularText">Viewed Jokes</div>
           <ul>
 
             {
@@ -87,7 +111,7 @@ function Jokes() {
                 </li>
               );
             })}
-          </ul>
+          </ul> */}
         </div>
       </div>
     </div>

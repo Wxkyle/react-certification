@@ -1,16 +1,17 @@
 import { useReactGraphql } from "@tesseractcollective/react-graphql";
 import { useAtom } from "jotai";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { JokesFieldsFragment } from "../hasura/generated/resourceApi";
 import { HasuraConfig } from "../hasura/hasuraConfig";
-import { searchModalAtom } from "./AllAtoms";
-import JokeFromSearchSelection from "./JokeFromSearchSelection";
+import { enableModalAtom } from "./AllAtoms";
+import SelectedJokeModal from "./SelectedJokeModal";
 
 function SearchResults(props: { searchBar: { value?: string } }) {
 
     const [displayJokeModal, setDisplayJokeModal] = useState<boolean>(false);
+    const [jokeCategory, setJokeCategory] = useState<string | undefined | null>(null);
     const [jokeObject, setJokeValueObject] = useState({});
-    const [modalEnabled, setModalEnabled] = useAtom(searchModalAtom);
+    const [modalEnabled, setModalEnabled] = useAtom(enableModalAtom);
 
     console.log(jokeObject)
 
@@ -18,9 +19,10 @@ function SearchResults(props: { searchBar: { value?: string } }) {
     const { searchBar } = props
 
     const displayJoke = (valueObject: JokesFieldsFragment) => {
-        setJokeValueObject(valueObject);
+        setJokeValueObject(valueObject.value);
         setDisplayJokeModal(true);
         setModalEnabled(true);
+        setJokeCategory(valueObject?.category)
     };
 
     function truncateString(str: string, num: number) {
@@ -43,7 +45,7 @@ function SearchResults(props: { searchBar: { value?: string } }) {
 
 
     return <div>
-        <JokeFromSearchSelection value={jokeObject}></JokeFromSearchSelection>
+        <SelectedJokeModal category={jokeCategory} value={jokeObject} search></SelectedJokeModal>
         <div className="regularText">
             {searchBarResult.items.map((value) => {
                 return (
