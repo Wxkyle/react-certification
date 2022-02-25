@@ -56,6 +56,12 @@ function Home() {
     }, 1500);
   };
 
+  const errorElement = emailErr ? (
+    <p
+      data-testid="emailRedText"
+      style={{ color: "red" }}>Your email is invalid</p>
+  ) : null
+
 
   //# JSX / rendering element
   return (
@@ -78,11 +84,7 @@ function Home() {
                   data-testid="emailLogin"
                 // pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
                 ></input>
-                {emailErr ? (
-                  <p
-                    data-testid="emailRedText"
-                    style={{ color: "red" }}>Your email is invalid</p>
-                ) : null}
+                {errorElement}
               </div>
               <div>
                 <p>Password</p>
@@ -113,40 +115,28 @@ function Home() {
           <div>
             <div>
               {loggedIn ? (
-                <div className="regularText">
-                  <Link to="/Categories">Categories</Link>- This is a page that
-                  lists the categories of jokes you can see.
-                </div>
+                <>
+                  <div className="regularText">
+                    <Link to="/Categories">Categories</Link>- This is a page that
+                    lists the categories of jokes you can see.
+                  </div> <div className="regularText">
+                    <Link to="/Jokes">Jokes</Link>- This is a page that has funny
+                    stuff.
+                  </div>   <div className="regularText">
+                    <Link to="/Search">Search</Link>- This is where you can search
+                    Jokes.
+                  </div>
+                </>
               ) : (
                 <div className="regularText">
                   Categories- This is a page that lists the categories of jokes you can see.
                 </div>
               )}
             </div>
-            <div>
-              {loggedIn ? (
-                <div className="regularText">
-                  <Link to="/Jokes">Jokes</Link>- This is a page that has funny
-                  stuff.
-                </div>
-              ) : (
-                <div className="regularText">Jokes- This is a page that has funny stuff.</div>
-              )}
-            </div>
-            <div>
-              {loggedIn ? (
-                <div className="regularText">
-                  <Link to="/Search">Search</Link>- This is where you can search
-                  Jokes.
-                </div>
-              ) : (
-                <div className="regularText">Search- This is where you can search Jokes.</div>
-              )}
-            </div>
           </div>
         </div>
-      </div>
-    </div>
+      </div >
+    </div >
   );
 }
 
