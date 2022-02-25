@@ -7,6 +7,7 @@ module.exports = {
     {
       [`https://evolved-newt-21.hasura.app/v1/graphql`]: {
         headers: {
+          "x-hasura-admin-secret": ADMIN_SECRET,
         },
       },
     },

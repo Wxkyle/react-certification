@@ -158,3 +158,8 @@ p {
     -webkit-transform: rotate(360deg);
   }
 }
+
+
+.closeIcon {
+  cursor: pointer;
+}

@@ -6,17 +6,15 @@ import { HasuraConfig } from "../hasura/hasuraConfig";
 import { enableModalAtom } from "./AllAtoms";
 import SelectedJokeModal from "./SelectedJokeModal";
 
-function SearchResults(props: { searchBar: { value?: string } }) {
+function SearchResults(props: { searchText: { value?: string } }) {
 
     const [displayJokeModal, setDisplayJokeModal] = useState<boolean>(false);
     const [jokeCategory, setJokeCategory] = useState<string | undefined | null>(null);
     const [jokeObject, setJokeValueObject] = useState({});
     const [modalEnabled, setModalEnabled] = useAtom(enableModalAtom);
 
-    console.log(jokeObject)
-
     //#props
-    const { searchBar } = props
+    const { searchText } = props
 
     const displayJoke = (valueObject: JokesFieldsFragment) => {
         setJokeValueObject(valueObject.value);
@@ -25,13 +23,7 @@ function SearchResults(props: { searchBar: { value?: string } }) {
         setJokeCategory(valueObject?.category)
     };
 
-    function truncateString(str: string, num: number) {
-        if (str.length > num) {
-            return str.slice(0, num) + "...";
-        } else {
-            return str;
-        }
-    }
+
 
     // useEffect(() => {
     // }, [searchBar])
@@ -39,24 +31,33 @@ function SearchResults(props: { searchBar: { value?: string } }) {
     const searchBarResult = useReactGraphql(
         HasuraConfig.Jokes
     ).useInfiniteQueryMany<JokesFieldsFragment>({
-        where: { value: { _ilike: `%${searchBar.value}%` } },
+        where: { value: { _ilike: `%${searchText.value}%` } },
     });
 
-
-
-    return <div>
-        <SelectedJokeModal category={jokeCategory} value={jokeObject} search></SelectedJokeModal>
-        <div className="regularText">
-            {searchBarResult.items.map((value) => {
-                return (
-                    <li
-                        onClick={() => {
-                            displayJoke(value);
-                        }}
-                    >{`${truncateString(value.value, 50)}`}</li>
-                );
-            })}
-        </div></div>
+    return (
+        <div>
+            <SelectedJokeModal category={jokeCategory} value={jokeObject} search></SelectedJokeModal>
+            <div className="regularText">
+                {searchBarResult.items.map((value) => {
+                    return (
+                        <li
+                            onClick={() => {
+                                displayJoke(value);
+                            }}
+                        >{`${truncateString(value.value, 50)}`}</li>
+                    );
+                })}
+            </div>
+        </div>
+    )
 }
 
 export default SearchResults
+
+function truncateString(str: string, num: number) {
+    if (str.length > num) {
+        return str.slice(0, num) + "...";
+    } else {
+        return str;
+    }
+}

@@ -2,7 +2,7 @@ import { useReactGraphql } from "@tesseractcollective/react-graphql";
 import { useAtom } from "jotai";
 import { JokesFieldsFragment } from "../hasura/generated/resourceApi";
 import { HasuraConfig } from "../hasura/hasuraConfig";
-import { enableModalAtom, chosenCategoryAtom, lookedAtJokesAtom } from "./AllAtoms";
+import { enableModalAtom, lookedAtJokesAtom } from "./AllAtoms";
 
 interface modalResults {
     category?: string | null;
@@ -33,6 +33,7 @@ function SelectedJokeModal(props: modalResults) {
     //# spread
     const lookedAtJokeArray = [...lookedAtJokes, jokeResultsItem]
 
+    const jokeValue = props?.search ? props.value : jokeResultsItem?.value
 
     //# arrow function
     const closeJoke = () => {
@@ -44,9 +45,9 @@ function SelectedJokeModal(props: modalResults) {
         <div className={modalEnabled ? "categoryModal" : "hidden"}>
             <div className="categoryModalTitle">
                 <div>{`Random Joke from ${props?.category} category`}</div>
-                <div onClick={() => closeJoke()}>X</div>
+                <div className="closeIcon" onClick={() => closeJoke()}>X</div>
             </div>
-            <div className="regularText">{`${props?.search ? props.value : jokeResultsItem?.value}`}</div>
+            <div className="regularText">{`${jokeValue}`}</div>
         </div>
     );
 }

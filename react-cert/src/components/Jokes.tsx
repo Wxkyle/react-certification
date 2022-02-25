@@ -1,23 +1,15 @@
 import { useReactGraphql } from "@tesseractcollective/react-graphql";
-import { useAtom } from "jotai";
 import { useState } from "react";
 import { CategoriesFieldsFragment, JokesFieldsFragment, Jokes_Insert_Input } from "../hasura/generated/resourceApi";
 import { HasuraConfig } from "../hasura/hasuraConfig";
-import { lookedAtJokesAtom } from "./AllAtoms";
 import Navbar from "./Navbar";
 
 
 //#function component
 function Jokes() {
   const [stateCategory, setstateCategory] = useState('')
-  const stateCreatedAt = '2020-01-05 13:42:20.262289'
-  const stateIconUrl = 'https://assets.chucknorris.host/img/avatar/chuck-norris.png'
-  const stateUpdatedAt = '2020-01-05 13:42:20.262289'
   const [stateValue, setstateValue] = useState('')
-  const stateUrl = 'https://api.chucknorris.io/jokes/3ew2Bz6gQmKbSTVCknrISQ'
 
-
-  const [lookedAtJokes, setLookedAtJokes] = useAtom(lookedAtJokesAtom)
 
   const allJokesResult = useReactGraphql(
     HasuraConfig.Jokes
@@ -32,12 +24,16 @@ function Jokes() {
     HasuraConfig.Jokes
   ).useInsert<JokesFieldsFragment, {}, Jokes_Insert_Input>({
     initialItem: {
-      created_at: stateCreatedAt,
-      icon_url: stateIconUrl,
-      updated_at: stateUpdatedAt,
-      url: stateUrl,
+      created_at: new Date(),
+      icon_url: 'https://assets.chucknorris.host/img/avatar/chuck-norris.png',
+      updated_at: new Date(),
+      url: 'https://api.chucknorris.io/jokes/3ew2Bz6gQmKbSTVCknrISQ',
     }
   });
+
+  const onCategoryChange: React.ChangeEventHandler<HTMLInputElement> = (e) => setstateCategory(e.target.value)
+
+  const loadingJoke = mutating ? <div id="loading" /> : "Add Joke"
 
   return (
     <div>
@@ -49,8 +45,7 @@ function Jokes() {
             <div>Joke Category:
               <input
                 list='categorys'
-                onChange={(e) => setstateCategory(e.target.value)}
-              // pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
+                onChange={onCategoryChange}
               ></input>
               <datalist id='categorys'>
                 {categoriesResult?.items?.map((category) => {
@@ -71,10 +66,12 @@ function Jokes() {
                 onChange={(e) => setstateValue(e.target.value)}
                 className="joke"
                 placeholder="Put a joke here"
-              // pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
               ></input>
             </div>
-            <button className="submitButton" onClick={() => { executeMutation({ category: stateCategory, value: stateValue }) }}>{mutating ? <div id="loading" /> : "Add Joke"}</button>
+            <button className="submitButton" onClick={() => {
+              executeMutation({ category: stateCategory, value: stateValue })
+            }}
+            >{loadingJoke}</button>
           </div>
 
           <div className="regularText">All Jokes</div>

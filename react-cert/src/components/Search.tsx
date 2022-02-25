@@ -5,6 +5,7 @@ import SearchResults from "./SearchResults";
 
 //# class component
 class Search extends React.Component {
+
   constructor() {
     super({})
     //# state
@@ -12,9 +13,8 @@ class Search extends React.Component {
     this.state = {
     }
   }
+
   render(): React.ReactNode {
-
-
     return (
       <div>
         <Navbar loggedIn></Navbar>
@@ -41,8 +41,7 @@ class Search extends React.Component {
                 Search
               </button>
             </div>
-
-            <SearchResults data-testid="searchResults" searchBar={this.state}></SearchResults>
+            <SearchResults data-testid="searchResults" searchText={this.state}></SearchResults>
           </div>
         </div>
       </div>
