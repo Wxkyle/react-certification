@@ -119,18 +119,28 @@ function Home() {
                   <div className="regularText">
                     <Link to="/Categories">Categories</Link>- This is a page that
                     lists the categories of jokes you can see.
-                  </div> <div className="regularText">
+                  </div>
+                  <div className="regularText">
                     <Link to="/Jokes">Jokes</Link>- This is a page that has funny
                     stuff.
-                  </div>   <div className="regularText">
+                  </div>
+                  <div className="regularText">
                     <Link to="/Search">Search</Link>- This is where you can search
                     Jokes.
                   </div>
                 </>
               ) : (
-                <div className="regularText">
-                  Categories- This is a page that lists the categories of jokes you can see.
-                </div>
+                <>
+                  <div className="regularText">
+                    Categories- This is a page that lists the categories of jokes you can see.
+                  </div>
+                  <div className="regularText">
+                    Jokes- This is a page that has the Jokes.
+                  </div>
+                  <div className="regularText">
+                    Search- This is where you can search Jokes.
+                  </div>
+                </>
               )}
             </div>
           </div>
