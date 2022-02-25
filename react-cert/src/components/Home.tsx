@@ -56,11 +56,20 @@ function Home() {
     }, 1500);
   };
 
-  const errorElement = emailErr ? (
+  const errorEmailElement = emailErr ? (
     <p
       data-testid="emailRedText"
       style={{ color: "red" }}>Your email is invalid</p>
   ) : null
+
+  const errorPasswordElement = pwdError ? (
+    <p
+      data-testid="passwordRedText"
+      //# style
+      style={{ color: "red" }}>Your password is invalid</p>
+  ) : null
+
+  const loginLoading = loading ? <div id="loading" /> : "Login"
 
 
   //# JSX / rendering element
@@ -84,7 +93,7 @@ function Home() {
                   data-testid="emailLogin"
                 // pattern="^[a-zA-Z0-9.!#$%&'*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$"
                 ></input>
-                {errorElement}
+                {errorEmailElement}
               </div>
               <div>
                 <p>Password</p>
@@ -97,17 +106,12 @@ function Home() {
                   data-testid="passwordLogin"
                 // pattern="^(?=.*\d)(?=.*[a-zA-Z]).{6,10}$"
                 ></input>
-                {pwdError ? (
-                  <p
-                    data-testid="passwordRedText"
-                    //# style
-                    style={{ color: "red" }}>Your password is invalid</p>
-                ) : null}
+                {errorPasswordElement}
               </div>
               <button data-testid="buttonLogin"
                 //# arrow function
                 onClick={() => validate()} className="submitButton">
-                {loading ? <div id="loading" /> : "Login"}
+                {loginLoading}
               </button>
             </div>
             <div />
